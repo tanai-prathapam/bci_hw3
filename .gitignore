@@ -1,0 +1,10 @@
+*.asv
+*.autosave
+slprj/
+*.slxc
+.DS_Store
+Thumbs.db
+Desktop.ini
+# macOS archive metadata
+__MACOSX/
+._*
