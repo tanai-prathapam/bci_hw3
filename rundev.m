@@ -552,6 +552,149 @@ end
 
 fprintf('===== HW3 TASK 3: TRAINING END =====\n');
 
+%% 0301 Task 3 grouped bar chart
+fprintf('\n===== HW3 TASK 3: BAR CHART START =====\n');
+
+assert(exist('hw3ResultsDir', 'var') == 1 && ...
+       exist('hw3FiguresDir', 'var') == 1, ...
+    'Run section 00 first.');
+
+hw3Loaded = load(fullfile(hw3ResultsDir, ...
+    'task3_prediction_targets.mat'), 'hw3Task3');
+hw3Task3 = hw3Loaded.hw3Task3;
+
+assert(all(hw3Task3.completed), ...
+    'Complete all three Task 3 experiments first.');
+
+% Each row is a target; each column is a bar series.
+hw3BarValues = [ ...
+    hw3Task3.fvafTrain(:, 1), ...
+    hw3Task3.fvafTest(:, 1), ...
+    hw3Task3.fvafTrain(:, 2), ...
+    hw3Task3.fvafTest(:, 2)];
+
+hw3BarFigure = figure(30);
+clf(hw3BarFigure);
+
+bar(1:3, hw3BarValues, 'grouped');
+xticks(1:3);
+xticklabels({'Torque', 'Position', 'Velocity'});
+ylabel('Fraction of variance accounted for (FVAF)');
+title('Task 3: Prediction target comparison');
+
+legend('Train dimension 1', 'Test dimension 1', ...
+    'Train dimension 2', 'Test dimension 2', ...
+    'Location', 'best');
+
+xlabel({'Prediction target', ...
+    'Torque: 1 = shoulder, 2 = elbow. Position/velocity: 1 = X, 2 = Y.'});
+grid on
+
+hw3BarAxes = gca;
+hw3BarAxes.Toolbar.Visible = 'off';
+drawnow;
+
+hw3BarBase = fullfile(hw3FiguresDir, ...
+    'task3_target_comparison');
+
+savefig(hw3BarFigure, [hw3BarBase '.fig']);
+exportgraphics(hw3BarFigure, ...
+    [hw3BarBase '.png'], 'Resolution', 300);
+
+fprintf('Saved: %s.fig\n', hw3BarBase);
+fprintf('Saved: %s.png\n', hw3BarBase);
+fprintf('RESULT: PASS. Grouped bar chart saved.\n');
+fprintf('===== HW3 TASK 3: BAR CHART END =====\n');
+
+
+%% 0302 Task 3 prediction displays
+fprintf('\n===== HW3 TASK 3: VISUAL CHECK START =====\n');
+
+assert(exist('hw3ResultsDir', 'var') == 1 && ...
+       exist('hw3FiguresDir', 'var') == 1, ...
+    'Run section 00 first.');
+
+hw3Loaded = load(fullfile(hw3ResultsDir, ...
+    'task3_prediction_targets.mat'), 'hw3Task3');
+hw3Task3 = hw3Loaded.hw3Task3;
+
+assert(all(hw3Task3.completed), ...
+    'Complete all three Task 3 experiments first.');
+
+hw3TargetNames = {'Joint torque', 'Wrist position', 'Wrist velocity'};
+
+for hw3TargetIndex = 1:numel(hw3Task3.targets)
+    hw3Prediction = hw3Task3.predictions{hw3TargetIndex};
+
+    hw3PredictionFigure = figure(30 + hw3TargetIndex);
+    clf(hw3PredictionFigure);
+
+    hw3Layout = tiledlayout(hw3PredictionFigure, 2, 2);
+    title(hw3Layout, hw3TargetNames{hw3TargetIndex});
+
+    % Left column: training. Right column: testing.
+    for hw3Dimension = 1:2
+        for hw3DatasetIndex = 1:2
+            if hw3DatasetIndex == 1
+                hw3Actual = hw3Prediction.actualTrain;
+                hw3Predicted = hw3Prediction.predictedTrain;
+                hw3DatasetName = 'Training';
+            else
+                hw3Actual = hw3Prediction.actualTest;
+                hw3Predicted = hw3Prediction.predictedTest;
+                hw3DatasetName = 'Test';
+            end
+
+            % Display the first 256 samples of each dataset.
+            hw3SampleIndex = 1:min(256, size(hw3Actual, 1));
+
+            hw3TileIndex = ...
+                2 * (hw3Dimension - 1) + hw3DatasetIndex;
+            hw3PlotAxes = nexttile(hw3Layout, hw3TileIndex);
+
+            plot(hw3PlotAxes, hw3SampleIndex, ...
+                hw3Actual(hw3SampleIndex, hw3Dimension), ...
+                'b', 'LineWidth', 1);
+            hold(hw3PlotAxes, 'on');
+
+            plot(hw3PlotAxes, hw3SampleIndex, ...
+                hw3Predicted(hw3SampleIndex, hw3Dimension), ...
+                'r', 'LineWidth', 1);
+            hold(hw3PlotAxes, 'off');
+
+            title(hw3PlotAxes, sprintf('%s: %s', ...
+                hw3DatasetName, ...
+                hw3Task3.outputLabels{ ...
+                    hw3TargetIndex, hw3Dimension}));
+
+            xlabel(hw3PlotAxes, 'Sample index');
+            ylabel(hw3PlotAxes, hw3Task3.targets{hw3TargetIndex}, ...
+                'Interpreter', 'none');
+            legend(hw3PlotAxes, 'Actual', 'Predicted', ...
+                'Location', 'best');
+            grid(hw3PlotAxes, 'on');
+            hw3PlotAxes.Toolbar.Visible = 'off';
+        end
+    end
+
+    drawnow;
+
+    hw3PredictionBase = fullfile(hw3FiguresDir, ...
+        sprintf('task3_%s_predictions', ...
+        hw3Task3.targets{hw3TargetIndex}));
+
+    savefig(hw3PredictionFigure, [hw3PredictionBase '.fig']);
+    exportgraphics(hw3PredictionFigure, ...
+        [hw3PredictionBase '.png'], 'Resolution', 300);
+
+    fprintf('Figure %d: %s. Saved FIG and PNG.\n', ...
+        30 + hw3TargetIndex, ...
+        hw3TargetNames{hw3TargetIndex});
+end
+
+fprintf('RESULT: PASS. All prediction displays saved.\n');
+fprintf('===== HW3 TASK 3: VISUAL CHECK END =====\n');
+
 
 %% 031 Joint animation
 % Add later.

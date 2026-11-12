@@ -558,3 +558,100 @@ Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai
 Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task2_training_fold_effects.png
 RESULT: PASS. Four-curve figure created and saved.
 ===== HW3 TASK 2: PLOT END =====
+
+===== HW3 TASK 3: TRAINING START =====
+No change
+ok
+
+--- Experiment 1 of 3: torque ---
+Training folds: 1 2
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9260    0.8038
+
+Test Fraction of Variance Accounted For:
+    0.7583    0.4114
+
+Outputs:          Shoulder     Elbow
+Training FVAF:     0.926037      0.803756
+Test FVAF:         0.758331      0.411375
+Elapsed: 0.34 seconds. Progress saved.
+
+--- Experiment 2 of 3: X ---
+Training folds: 1 2
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    X
+ 
+Training Fraction of Variance Accounted For:
+    0.8607    0.8914
+
+Test Fraction of Variance Accounted For:
+    0.4095    0.2907
+
+Outputs:          X            Y
+Training FVAF:     0.860731      0.891446
+Test FVAF:         0.409510      0.290726
+Elapsed: 0.32 seconds. Progress saved.
+
+--- Experiment 3 of 3: dX ---
+Training folds: 1 2
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    dX
+ 
+Training Fraction of Variance Accounted For:
+    0.8885    0.9097
+
+Test Fraction of Variance Accounted For:
+    0.5497    0.6560
+
+Outputs:          X            Y
+Training FVAF:     0.888493      0.909659
+Test FVAF:         0.549656      0.655983
+Elapsed: 0.33 seconds. Progress saved.
+
+--- TASK 3 SUMMARY ---
+      <strong>Target</strong>      <strong>TrainDim1</strong>    <strong>TestDim1</strong>    <strong>TrainDim2</strong>    <strong>TestDim2</strong>
+    <strong>__________</strong>    <strong>_________</strong>    <strong>________</strong>    <strong>_________</strong>    <strong>________</strong>
+
+    {'torque'}     0.92604     0.75833      0.80376     0.41137 
+    {'X'     }     0.86073     0.40951      0.89145     0.29073 
+    {'dX'    }     0.88849     0.54966      0.90966     0.65598 
+
+Torque dimensions: shoulder / elbow
+Position and velocity dimensions: X / Y
+Saved results: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task3_prediction_targets.mat
+RESULT: PASS. All three targets trained and saved.
+===== HW3 TASK 3: TRAINING END =====
+
+===== HW3 TASK 3: BAR CHART START =====
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task3_target_comparison.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task3_target_comparison.png
+RESULT: PASS. Grouped bar chart saved.
+===== HW3 TASK 3: BAR CHART END =====
+
+===== HW3 TASK 3: VISUAL CHECK START =====
+Figure 31: Joint torque. Saved FIG and PNG.
+Figure 32: Wrist position. Saved FIG and PNG.
+Figure 33: Wrist velocity. Saved FIG and PNG.
+RESULT: PASS. All prediction displays saved.
+===== HW3 TASK 3: VISUAL CHECK END =====
