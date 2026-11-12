@@ -1181,9 +1181,201 @@ fprintf('RESULT: PASS. Both joint comparison figures saved.\n');
 fprintf('===== HW3 TASK 5: PLOTS END =====\n');
 
 
-%% 06 Task 6 neural history
-% Add later.
+%% 06 Task 6 neural history sweep
+fprintf('\n===== HW3 TASK 6: HISTORY SWEEP START =====\n');
 
+try
+    global parms
+
+    assert(exist('hw3ResultsDir', 'var') == 1, ...
+        'Run section 00 first.');
+
+    assert(isstruct(parms) && isfield(parms, 'patterns'), ...
+        'Lab state is missing. Run section 00.');
+
+    % Fix all settings except neural history length.
+    set_type('torque');
+    set_pca(0);
+    set_proprioceptive(0);
+    set_train(1:2);
+    set_test(10);
+
+    assert(isempty(intersect( ...
+        parms.net.patset_train, parms.net.patset_test)), ...
+        'Training and test folds overlap.');
+
+    hw3Task6 = struct;
+    hw3Task6.target = 'torque';
+    hw3Task6.trainFolds = parms.net.patset_train;
+    hw3Task6.testFolds = parms.net.patset_test;
+    hw3Task6.nPC = 0;
+    hw3Task6.proprioception = 0;
+    hw3Task6.historyBins = (1:20)';
+    hw3Task6.historyMs = 50 * hw3Task6.historyBins;
+    hw3Task6.oldestBinDelayMs = ...
+        50 * (hw3Task6.historyBins - 1);
+    hw3Task6.nCells = ...
+        size(parms.patterns.MI{1}, 2) / parms.patterns.Ndelays;
+
+    hw3Task6.fvafTrain = nan(20, 2);
+    hw3Task6.fvafTest = nan(20, 2);
+    hw3Task6.inputColumns = nan(20, 1);
+    hw3Task6.nTrainSamples = nan(20, 1);
+    hw3Task6.nTestSamples = nan(20, 1);
+    hw3Task6.elapsedSeconds = nan(20, 1);
+    hw3Task6.completed = false(20, 1);
+
+    hw3Task6File = fullfile(hw3ResultsDir, ...
+        'task6_neural_history.mat');
+
+    for hw3HistoryIndex = 1:20
+        hw3HistoryBins = hw3Task6.historyBins(hw3HistoryIndex);
+        set_delays(1:hw3HistoryBins);
+
+        fprintf('\n--- Experiment %d of 20 ---\n', hw3HistoryIndex);
+        fprintf('History: %d bins / %d ms window\n', ...
+            hw3HistoryBins, ...
+            hw3Task6.historyMs(hw3HistoryIndex));
+
+        hw3Task6Timer = tic;
+        [hw3TrainFVAF, hw3TestFVAF] = train;
+        hw3Elapsed = toc(hw3Task6Timer);
+
+        assert(all(isfinite( ...
+            [hw3TrainFVAF(:); hw3TestFVAF(:)])), ...
+            'FVAF contains NaN or Inf.');
+
+        hw3ExpectedColumns = ...
+            hw3Task6.nCells * hw3HistoryBins + 1;
+
+        assert(size(parms.patterns.input_train, 2) == ...
+               hw3ExpectedColumns, ...
+            'Unexpected number of neural features plus intercept.');
+
+        hw3Task6.fvafTrain(hw3HistoryIndex, :) = ...
+            hw3TrainFVAF(:)';
+        hw3Task6.fvafTest(hw3HistoryIndex, :) = ...
+            hw3TestFVAF(:)';
+        hw3Task6.inputColumns(hw3HistoryIndex) = ...
+            size(parms.patterns.input_train, 2);
+        hw3Task6.nTrainSamples(hw3HistoryIndex) = ...
+            size(parms.patterns.input_train, 1);
+        hw3Task6.nTestSamples(hw3HistoryIndex) = ...
+            size(parms.patterns.input_test, 1);
+        hw3Task6.elapsedSeconds(hw3HistoryIndex) = hw3Elapsed;
+        hw3Task6.completed(hw3HistoryIndex) = true;
+
+        save(hw3Task6File, 'hw3Task6');
+
+        fprintf('                  Shoulder       Elbow\n');
+        fprintf('Training FVAF:    % .6f      % .6f\n', ...
+            hw3TrainFVAF(1), hw3TrainFVAF(2));
+        fprintf('Test FVAF:        % .6f      % .6f\n', ...
+            hw3TestFVAF(1), hw3TestFVAF(2));
+        fprintf('Input columns: %d. Elapsed: %.2f seconds.\n', ...
+            hw3ExpectedColumns, hw3Elapsed);
+        fprintf('Progress saved.\n');
+    end
+
+    assert(numel(unique(hw3Task6.nTrainSamples)) == 1 && ...
+           numel(unique(hw3Task6.nTestSamples)) == 1, ...
+        'Sample counts changed across history settings.');
+
+    hw3Task6.table = table( ...
+        hw3Task6.historyBins, ...
+        hw3Task6.historyMs, ...
+        hw3Task6.inputColumns, ...
+        hw3Task6.fvafTrain(:, 1), ...
+        hw3Task6.fvafTest(:, 1), ...
+        hw3Task6.fvafTrain(:, 2), ...
+        hw3Task6.fvafTest(:, 2), ...
+        'VariableNames', {'HistoryBins', 'HistoryMs', ...
+        'InputColumns', 'TrainShoulder', 'TestShoulder', ...
+        'TrainElbow', 'TestElbow'});
+
+    save(hw3Task6File, 'hw3Task6');
+
+    fprintf('\n--- TASK 6 SUMMARY ---\n');
+    disp(hw3Task6.table);
+
+    [hw3BestFVAF, hw3BestIndex] = ...
+        max(hw3Task6.fvafTest, [], 1);
+
+    fprintf('Best sampled shoulder test FVAF: %.6f at %d bins (%d ms)\n', ...
+        hw3BestFVAF(1), ...
+        hw3Task6.historyBins(hw3BestIndex(1)), ...
+        hw3Task6.historyMs(hw3BestIndex(1)));
+
+    fprintf('Best sampled elbow test FVAF: %.6f at %d bins (%d ms)\n', ...
+        hw3BestFVAF(2), ...
+        hw3Task6.historyBins(hw3BestIndex(2)), ...
+        hw3Task6.historyMs(hw3BestIndex(2)));
+
+    fprintf('Saved: %s\n', hw3Task6File);
+    fprintf('RESULT: PASS. All 20 experiments completed.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 6: HISTORY SWEEP END =====\n');
+
+
+%% 061 Task 6 neural history plot
+fprintf('\n===== HW3 TASK 6: PLOT START =====\n');
+
+assert(exist('hw3ResultsDir', 'var') == 1 && ...
+       exist('hw3FiguresDir', 'var') == 1, ...
+    'Run section 00 first.');
+
+hw3Task6Loaded = load(fullfile(hw3ResultsDir, ...
+    'task6_neural_history.mat'), 'hw3Task6');
+hw3Task6 = hw3Task6Loaded.hw3Task6;
+
+assert(all(hw3Task6.completed), ...
+    'Complete the Task 6 sweep before plotting.');
+
+hw3Task6Figure = figure(60);
+clf(hw3Task6Figure);
+
+plot(hw3Task6.historyMs, hw3Task6.fvafTrain(:, 1), ...
+    '-o', 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5);
+hold on
+plot(hw3Task6.historyMs, hw3Task6.fvafTest(:, 1), ...
+    '--o', 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5);
+plot(hw3Task6.historyMs, hw3Task6.fvafTrain(:, 2), ...
+    '-s', 'Color', [0.8500 0.3250 0.0980], 'LineWidth', 1.5);
+plot(hw3Task6.historyMs, hw3Task6.fvafTest(:, 2), ...
+    '--s', 'Color', [0.8500 0.3250 0.0980], 'LineWidth', 1.5);
+hold off
+
+xlabel('Neural history window (ms; 50 ms per bin)');
+ylabel('Fraction of variance accounted for (FVAF)');
+title('Task 6: Neural history effects on torque prediction');
+legend('Train shoulder', 'Test shoulder', ...
+    'Train elbow', 'Test elbow', 'Location', 'best');
+xlim([50 1000]);
+xticks([50 100:100:1000]);
+grid on
+
+hw3Task6Axes = gca;
+hw3Task6Axes.Toolbar.Visible = 'off';
+drawnow;
+
+hw3Task6FigureBase = fullfile(hw3FiguresDir, ...
+    'task6_neural_history_effects');
+
+savefig(hw3Task6Figure, [hw3Task6FigureBase '.fig']);
+exportgraphics(hw3Task6Figure, ...
+    [hw3Task6FigureBase '.png'], 'Resolution', 300);
+
+fprintf('Saved: %s.fig\n', hw3Task6FigureBase);
+fprintf('Saved: %s.png\n', hw3Task6FigureBase);
+fprintf('RESULT: PASS. Neural history figure saved.\n');
+fprintf('===== HW3 TASK 6: PLOT END =====\n');
 
 %% 07 Make figures
 % Add later.
