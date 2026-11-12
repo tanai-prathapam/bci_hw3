@@ -347,6 +347,77 @@ end
 
 fprintf('===== HW3 TASK 2: TRAINING SWEEP END =====\n');
 
+%% 021 Task 2 plot
+fprintf('\n===== HW3 TASK 2: PLOT START =====\n');
+
+try
+    assert(exist('hw3ResultsDir', 'var') == 1 && ...
+           exist('hw3FiguresDir', 'var') == 1, ...
+        'Run section 00 before this section.');
+
+    % Load saved results so plotting does not require retraining.
+    hw3Task2Loaded = load(fullfile(hw3ResultsDir, ...
+        'task2_training_folds.mat'), 'hw3Task2');
+    hw3Task2 = hw3Task2Loaded.hw3Task2;
+
+    assert(all(hw3Task2.completed), ...
+        'The training sweep is incomplete.');
+
+    hw3Task2Figure = figure(22);
+    clf(hw3Task2Figure);
+
+    plot(hw3Task2.foldCounts, hw3Task2.fvafTrain(:, 1), ...
+        '-o', 'Color', [0 0.4470 0.7410], ...
+        'LineWidth', 1.5);
+    hold on
+
+    plot(hw3Task2.foldCounts, hw3Task2.fvafTest(:, 1), ...
+        '--o', 'Color', [0 0.4470 0.7410], ...
+        'LineWidth', 1.5);
+
+    plot(hw3Task2.foldCounts, hw3Task2.fvafTrain(:, 2), ...
+        '-s', 'Color', [0.8500 0.3250 0.0980], ...
+        'LineWidth', 1.5);
+
+    plot(hw3Task2.foldCounts, hw3Task2.fvafTest(:, 2), ...
+        '--s', 'Color', [0.8500 0.3250 0.0980], ...
+        'LineWidth', 1.5);
+    hold off
+
+    xlabel('Number of training folds');
+    ylabel('Fraction of variance accounted for (FVAF)');
+    title('Task 2: Training set effects on torque prediction');
+
+    legend('Train shoulder', 'Test shoulder', ...
+        'Train elbow', 'Test elbow', ...
+        'Location', 'best');
+
+    xticks(hw3Task2.foldCounts);
+    xlim([1 9]);
+    grid on
+    drawnow;
+
+    % Preserve editable and report-ready versions.
+    hw3Task2FigureBase = fullfile(hw3FiguresDir, ...
+        'task2_training_fold_effects');
+
+    savefig(hw3Task2Figure, [hw3Task2FigureBase '.fig']);
+    exportgraphics(hw3Task2Figure, ...
+        [hw3Task2FigureBase '.png'], 'Resolution', 300);
+
+    fprintf('Saved: %s.fig\n', hw3Task2FigureBase);
+    fprintf('Saved: %s.png\n', hw3Task2FigureBase);
+    fprintf('RESULT: PASS. Four-curve figure created and saved.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 2: PLOT END =====\n');
+
 
 %% 03 Task 3 prediction targets
 % Add later.

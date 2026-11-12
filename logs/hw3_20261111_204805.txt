@@ -105,3 +105,450 @@ Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai
 
 RESULT: PASS. Both prediction displays opened and saved.
 ===== HW3 TASK 1: VISUAL CHECK END =====
+
+===== HW3 TASK 2: TRAINING SWEEP START =====
+No change
+ok
+
+--- Experiment 1 of 9 ---
+Training folds: 1 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9781    0.9400
+
+Test Fraction of Variance Accounted For:
+    0.2607   -0.6840
+
+                  Shoulder       Elbow
+Training FVAF:     0.978052       0.940034
+Test FVAF:         0.260734      -0.684016
+Elapsed: 0.22 seconds. Progress saved.
+
+--- Experiment 2 of 9 ---
+Training folds: 1 2 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9260    0.8038
+
+Test Fraction of Variance Accounted For:
+    0.7583    0.4114
+
+                  Shoulder       Elbow
+Training FVAF:     0.926037       0.803756
+Test FVAF:         0.758331       0.411375
+Elapsed: 0.43 seconds. Progress saved.
+
+--- Experiment 3 of 9 ---
+Training folds: 1 2 3 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9075    0.7566
+
+Test Fraction of Variance Accounted For:
+    0.7872    0.4767
+
+                  Shoulder       Elbow
+Training FVAF:     0.907536       0.756621
+Test FVAF:         0.787203       0.476743
+Elapsed: 0.48 seconds. Progress saved.
+
+--- Experiment 4 of 9 ---
+Training folds: 1 2 3 4 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8910    0.7090
+
+Test Fraction of Variance Accounted For:
+    0.7869    0.5087
+
+                  Shoulder       Elbow
+Training FVAF:     0.891001       0.708950
+Test FVAF:         0.786947       0.508660
+Elapsed: 0.70 seconds. Progress saved.
+
+--- Experiment 5 of 9 ---
+Training folds: 1 2 3 4 5 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8505    0.6426
+
+Test Fraction of Variance Accounted For:
+    0.7777    0.5125
+
+                  Shoulder       Elbow
+Training FVAF:     0.850510       0.642647
+Test FVAF:         0.777725       0.512502
+Elapsed: 0.75 seconds. Progress saved.
+
+--- Experiment 6 of 9 ---
+Training folds: 1 2 3 4 5 6 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8350    0.6215
+
+Test Fraction of Variance Accounted For:
+    0.7981    0.4962
+
+                  Shoulder       Elbow
+Training FVAF:     0.835024       0.621542
+Test FVAF:         0.798075       0.496225
+Elapsed: 0.83 seconds. Progress saved.
+
+--- Experiment 7 of 9 ---
+Training folds: 1 2 3 4 5 6 7 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8340    0.6161
+
+Test Fraction of Variance Accounted For:
+    0.7981    0.4968
+
+                  Shoulder       Elbow
+Training FVAF:     0.834042       0.616057
+Test FVAF:         0.798142       0.496761
+Elapsed: 0.89 seconds. Progress saved.
+
+--- Experiment 8 of 9 ---
+Training folds: 1 2 3 4 5 6 7 8 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8068    0.5740
+
+Test Fraction of Variance Accounted For:
+    0.8079    0.4971
+
+                  Shoulder       Elbow
+Training FVAF:     0.806849       0.574015
+Test FVAF:         0.807875       0.497130
+Elapsed: 1.14 seconds. Progress saved.
+
+--- Experiment 9 of 9 ---
+Training folds: 1 2 3 4 5 6 7 8 9 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8083    0.5737
+
+Test Fraction of Variance Accounted For:
+    0.8139    0.5074
+
+                  Shoulder       Elbow
+Training FVAF:     0.808337       0.573735
+Test FVAF:         0.813915       0.507385
+Elapsed: 1.28 seconds. Progress saved.
+
+--- TASK 2 SUMMARY ---
+    <strong>TrainFolds</strong>    <strong>TrainSamples</strong>    <strong>TrainShoulder</strong>    <strong>TestShoulder</strong>    <strong>TrainElbow</strong>    <strong>TestElbow</strong>
+    <strong>__________</strong>    <strong>____________</strong>    <strong>_____________</strong>    <strong>____________</strong>    <strong>__________</strong>    <strong>_________</strong>
+
+        1             1194           0.97805         0.26073        0.94003      -0.68402 
+        2             2299           0.92604         0.75833        0.80376       0.41137 
+        3             3831           0.90754          0.7872        0.75662       0.47674 
+        4             5097             0.891         0.78695        0.70895       0.50866 
+        5             6596           0.85051         0.77773        0.64265        0.5125 
+        6             7849           0.83502         0.79807        0.62154       0.49622 
+        7             9225           0.83404         0.79814        0.61606       0.49676 
+        8            10356           0.80685         0.80788        0.57401       0.49713 
+        9            11604           0.80834         0.81392        0.57373       0.50739 
+
+Saved results: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task2_training_folds.mat
+RESULT: PASS. All nine experiments completed.
+===== HW3 TASK 2: TRAINING SWEEP END =====
+
+===== HW3 TASK 2: TRAINING SWEEP START =====
+No change
+ok
+
+--- Experiment 1 of 9 ---
+Training folds: 1 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9781    0.9400
+
+Test Fraction of Variance Accounted For:
+    0.2607   -0.6840
+
+                  Shoulder       Elbow
+Training FVAF:     0.978052       0.940034
+Test FVAF:         0.260734      -0.684016
+Elapsed: 0.26 seconds. Progress saved.
+
+--- Experiment 2 of 9 ---
+Training folds: 1 2 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9260    0.8038
+
+Test Fraction of Variance Accounted For:
+    0.7583    0.4114
+
+                  Shoulder       Elbow
+Training FVAF:     0.926037       0.803756
+Test FVAF:         0.758331       0.411375
+Elapsed: 0.39 seconds. Progress saved.
+
+--- Experiment 3 of 9 ---
+Training folds: 1 2 3 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9075    0.7566
+
+Test Fraction of Variance Accounted For:
+    0.7872    0.4767
+
+                  Shoulder       Elbow
+Training FVAF:     0.907536       0.756621
+Test FVAF:         0.787203       0.476743
+Elapsed: 0.48 seconds. Progress saved.
+
+--- Experiment 4 of 9 ---
+Training folds: 1 2 3 4 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8910    0.7090
+
+Test Fraction of Variance Accounted For:
+    0.7869    0.5087
+
+                  Shoulder       Elbow
+Training FVAF:     0.891001       0.708950
+Test FVAF:         0.786947       0.508660
+Elapsed: 0.67 seconds. Progress saved.
+
+--- Experiment 5 of 9 ---
+Training folds: 1 2 3 4 5 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8505    0.6426
+
+Test Fraction of Variance Accounted For:
+    0.7777    0.5125
+
+                  Shoulder       Elbow
+Training FVAF:     0.850510       0.642647
+Test FVAF:         0.777725       0.512502
+Elapsed: 0.73 seconds. Progress saved.
+
+--- Experiment 6 of 9 ---
+Training folds: 1 2 3 4 5 6 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8350    0.6215
+
+Test Fraction of Variance Accounted For:
+    0.7981    0.4962
+
+                  Shoulder       Elbow
+Training FVAF:     0.835024       0.621542
+Test FVAF:         0.798075       0.496225
+Elapsed: 0.85 seconds. Progress saved.
+
+--- Experiment 7 of 9 ---
+Training folds: 1 2 3 4 5 6 7 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8340    0.6161
+
+Test Fraction of Variance Accounted For:
+    0.7981    0.4968
+
+                  Shoulder       Elbow
+Training FVAF:     0.834042       0.616057
+Test FVAF:         0.798142       0.496761
+Elapsed: 1.00 seconds. Progress saved.
+
+--- Experiment 8 of 9 ---
+Training folds: 1 2 3 4 5 6 7 8 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8068    0.5740
+
+Test Fraction of Variance Accounted For:
+    0.8079    0.4971
+
+                  Shoulder       Elbow
+Training FVAF:     0.806849       0.574015
+Test FVAF:         0.807875       0.497130
+Elapsed: 1.12 seconds. Progress saved.
+
+--- Experiment 9 of 9 ---
+Training folds: 1 2 3 4 5 6 7 8 9 
+Test fold: 10
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8083    0.5737
+
+Test Fraction of Variance Accounted For:
+    0.8139    0.5074
+
+                  Shoulder       Elbow
+Training FVAF:     0.808337       0.573735
+Test FVAF:         0.813915       0.507385
+Elapsed: 1.28 seconds. Progress saved.
+
+--- TASK 2 SUMMARY ---
+    <strong>TrainFolds</strong>    <strong>TrainSamples</strong>    <strong>TrainShoulder</strong>    <strong>TestShoulder</strong>    <strong>TrainElbow</strong>    <strong>TestElbow</strong>
+    <strong>__________</strong>    <strong>____________</strong>    <strong>_____________</strong>    <strong>____________</strong>    <strong>__________</strong>    <strong>_________</strong>
+
+        1             1194           0.97805         0.26073        0.94003      -0.68402 
+        2             2299           0.92604         0.75833        0.80376       0.41137 
+        3             3831           0.90754          0.7872        0.75662       0.47674 
+        4             5097             0.891         0.78695        0.70895       0.50866 
+        5             6596           0.85051         0.77773        0.64265        0.5125 
+        6             7849           0.83502         0.79807        0.62154       0.49622 
+        7             9225           0.83404         0.79814        0.61606       0.49676 
+        8            10356           0.80685         0.80788        0.57401       0.49713 
+        9            11604           0.80834         0.81392        0.57373       0.50739 
+
+Saved results: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task2_training_folds.mat
+RESULT: PASS. All nine experiments completed.
+===== HW3 TASK 2: TRAINING SWEEP END =====
+
+===== HW3 TASK 2: PLOT START =====
+[Warning: Exported image displays axes toolbar. To remove axes toolbar from image, export again.] 
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task2_training_fold_effects.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task2_training_fold_effects.png
+RESULT: PASS. Four-curve figure created and saved.
+===== HW3 TASK 2: PLOT END =====
