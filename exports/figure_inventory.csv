@@ -1,0 +1,12 @@
+FigureFile,Exists
+task1_train_predictions.fig,1
+task1_test_predictions.fig,1
+task2_training_fold_effects.png,1
+task3_target_comparison.png,1
+task3_torque_predictions.png,1
+task3_X_predictions.png,1
+task3_dX_predictions.png,1
+task4_pca_effects.png,1
+task5_shoulder_proprioception.png,1
+task5_elbow_proprioception.png,1
+task6_neural_history_effects.png,1

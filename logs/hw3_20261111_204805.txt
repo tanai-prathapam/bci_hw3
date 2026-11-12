@@ -2777,3 +2777,557 @@ Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai
 Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task5_elbow_proprioception.png
 RESULT: PASS. Both joint comparison figures saved.
 ===== HW3 TASK 5: PLOTS END =====
+
+===== HW3 TASK 6: HISTORY SWEEP START =====
+Proprioceptive flag set to 0
+ok
+
+--- Experiment 1 of 20 ---
+History: 1 bins / 50 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.5662    0.3332
+
+Test Fraction of Variance Accounted For:
+    0.4956    0.2358
+
+                  Shoulder       Elbow
+Training FVAF:     0.566186       0.333236
+Test FVAF:         0.495640       0.235833
+Input columns: 49. Elapsed: 0.02 seconds.
+Progress saved.
+ok
+
+--- Experiment 2 of 20 ---
+History: 2 bins / 100 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.7018    0.4723
+
+Test Fraction of Variance Accounted For:
+    0.6119    0.3310
+
+                  Shoulder       Elbow
+Training FVAF:     0.701819       0.472288
+Test FVAF:         0.611940       0.331020
+Input columns: 97. Elapsed: 0.01 seconds.
+Progress saved.
+ok
+
+--- Experiment 3 of 20 ---
+History: 3 bins / 150 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.7699    0.5479
+
+Test Fraction of Variance Accounted For:
+    0.6768    0.3746
+
+                  Shoulder       Elbow
+Training FVAF:     0.769901       0.547917
+Test FVAF:         0.676752       0.374601
+Input columns: 145. Elapsed: 0.02 seconds.
+Progress saved.
+ok
+
+--- Experiment 4 of 20 ---
+History: 4 bins / 200 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8069    0.5888
+
+Test Fraction of Variance Accounted For:
+    0.7193    0.3958
+
+                  Shoulder       Elbow
+Training FVAF:     0.806934       0.588789
+Test FVAF:         0.719282       0.395764
+Input columns: 193. Elapsed: 0.03 seconds.
+Progress saved.
+ok
+
+--- Experiment 5 of 20 ---
+History: 5 bins / 250 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8317    0.6167
+
+Test Fraction of Variance Accounted For:
+    0.7419    0.4171
+
+                  Shoulder       Elbow
+Training FVAF:     0.831695       0.616714
+Test FVAF:         0.741907       0.417143
+Input columns: 241. Elapsed: 0.04 seconds.
+Progress saved.
+ok
+
+--- Experiment 6 of 20 ---
+History: 6 bins / 300 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8497    0.6413
+
+Test Fraction of Variance Accounted For:
+    0.7558    0.4411
+
+                  Shoulder       Elbow
+Training FVAF:     0.849667       0.641341
+Test FVAF:         0.755848       0.441084
+Input columns: 289. Elapsed: 0.04 seconds.
+Progress saved.
+ok
+
+--- Experiment 7 of 20 ---
+History: 7 bins / 350 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8636    0.6657
+
+Test Fraction of Variance Accounted For:
+    0.7704    0.4588
+
+                  Shoulder       Elbow
+Training FVAF:     0.863553       0.665668
+Test FVAF:         0.770366       0.458775
+Input columns: 337. Elapsed: 0.06 seconds.
+Progress saved.
+ok
+
+--- Experiment 8 of 20 ---
+History: 8 bins / 400 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8762    0.6904
+
+Test Fraction of Variance Accounted For:
+    0.7829    0.4676
+
+                  Shoulder       Elbow
+Training FVAF:     0.876163       0.690442
+Test FVAF:         0.782930       0.467625
+Input columns: 385. Elapsed: 0.06 seconds.
+Progress saved.
+ok
+
+--- Experiment 9 of 20 ---
+History: 9 bins / 450 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8864    0.7110
+
+Test Fraction of Variance Accounted For:
+    0.7906    0.4683
+
+                  Shoulder       Elbow
+Training FVAF:     0.886448       0.711001
+Test FVAF:         0.790628       0.468331
+Input columns: 433. Elapsed: 0.08 seconds.
+Progress saved.
+ok
+
+--- Experiment 10 of 20 ---
+History: 10 bins / 500 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8932    0.7263
+
+Test Fraction of Variance Accounted For:
+    0.7947    0.4629
+
+                  Shoulder       Elbow
+Training FVAF:     0.893208       0.726316
+Test FVAF:         0.794737       0.462913
+Input columns: 481. Elapsed: 0.09 seconds.
+Progress saved.
+ok
+
+--- Experiment 11 of 20 ---
+History: 11 bins / 550 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8987    0.7358
+
+Test Fraction of Variance Accounted For:
+    0.7937    0.4629
+
+                  Shoulder       Elbow
+Training FVAF:     0.898745       0.735842
+Test FVAF:         0.793706       0.462938
+Input columns: 529. Elapsed: 0.11 seconds.
+Progress saved.
+ok
+
+--- Experiment 12 of 20 ---
+History: 12 bins / 600 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9028    0.7429
+
+Test Fraction of Variance Accounted For:
+    0.7904    0.4687
+
+                  Shoulder       Elbow
+Training FVAF:     0.902812       0.742923
+Test FVAF:         0.790412       0.468720
+Input columns: 577. Elapsed: 0.15 seconds.
+Progress saved.
+ok
+
+--- Experiment 13 of 20 ---
+History: 13 bins / 650 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9058    0.7507
+
+Test Fraction of Variance Accounted For:
+    0.7865    0.4714
+
+                  Shoulder       Elbow
+Training FVAF:     0.905847       0.750673
+Test FVAF:         0.786525       0.471430
+Input columns: 625. Elapsed: 0.16 seconds.
+Progress saved.
+ok
+
+--- Experiment 14 of 20 ---
+History: 14 bins / 700 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9088    0.7611
+
+Test Fraction of Variance Accounted For:
+    0.7790    0.4684
+
+                  Shoulder       Elbow
+Training FVAF:     0.908836       0.761062
+Test FVAF:         0.778956       0.468447
+Input columns: 673. Elapsed: 0.18 seconds.
+Progress saved.
+ok
+
+--- Experiment 15 of 20 ---
+History: 15 bins / 750 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9115    0.7702
+
+Test Fraction of Variance Accounted For:
+    0.7731    0.4677
+
+                  Shoulder       Elbow
+Training FVAF:     0.911548       0.770207
+Test FVAF:         0.773126       0.467693
+Input columns: 721. Elapsed: 0.25 seconds.
+Progress saved.
+ok
+
+--- Experiment 16 of 20 ---
+History: 16 bins / 800 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9136    0.7772
+
+Test Fraction of Variance Accounted For:
+    0.7714    0.4642
+
+                  Shoulder       Elbow
+Training FVAF:     0.913562       0.777154
+Test FVAF:         0.771417       0.464235
+Input columns: 769. Elapsed: 0.25 seconds.
+Progress saved.
+ok
+
+--- Experiment 17 of 20 ---
+History: 17 bins / 850 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9159    0.7822
+
+Test Fraction of Variance Accounted For:
+    0.7713    0.4556
+
+                  Shoulder       Elbow
+Training FVAF:     0.915944       0.782194
+Test FVAF:         0.771307       0.455560
+Input columns: 817. Elapsed: 0.28 seconds.
+Progress saved.
+ok
+
+--- Experiment 18 of 20 ---
+History: 18 bins / 900 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9191    0.7886
+
+Test Fraction of Variance Accounted For:
+    0.7714    0.4444
+
+                  Shoulder       Elbow
+Training FVAF:     0.919098       0.788551
+Test FVAF:         0.771357       0.444400
+Input columns: 865. Elapsed: 0.35 seconds.
+Progress saved.
+ok
+
+--- Experiment 19 of 20 ---
+History: 19 bins / 950 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9223    0.7957
+
+Test Fraction of Variance Accounted For:
+    0.7677    0.4313
+
+                  Shoulder       Elbow
+Training FVAF:     0.922344       0.795731
+Test FVAF:         0.767679       0.431305
+Input columns: 913. Elapsed: 0.43 seconds.
+Progress saved.
+ok
+
+--- Experiment 20 of 20 ---
+History: 20 bins / 1000 ms window
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9260    0.8038
+
+Test Fraction of Variance Accounted For:
+    0.7583    0.4114
+
+                  Shoulder       Elbow
+Training FVAF:     0.926037       0.803756
+Test FVAF:         0.758331       0.411375
+Input columns: 961. Elapsed: 0.49 seconds.
+Progress saved.
+
+--- TASK 6 SUMMARY ---
+    <strong>HistoryBins</strong>    <strong>HistoryMs</strong>    <strong>InputColumns</strong>    <strong>TrainShoulder</strong>    <strong>TestShoulder</strong>    <strong>TrainElbow</strong>    <strong>TestElbow</strong>
+    <strong>___________</strong>    <strong>_________</strong>    <strong>____________</strong>    <strong>_____________</strong>    <strong>____________</strong>    <strong>__________</strong>    <strong>_________</strong>
+
+         1             50            49            0.56619         0.49564        0.33324       0.23583 
+         2            100            97            0.70182         0.61194        0.47229       0.33102 
+         3            150           145             0.7699         0.67675        0.54792        0.3746 
+         4            200           193            0.80693         0.71928        0.58879       0.39576 
+         5            250           241            0.83169         0.74191        0.61671       0.41714 
+         6            300           289            0.84967         0.75585        0.64134       0.44108 
+         7            350           337            0.86355         0.77037        0.66567       0.45878 
+         8            400           385            0.87616         0.78293        0.69044       0.46763 
+         9            450           433            0.88645         0.79063          0.711       0.46833 
+        10            500           481            0.89321         0.79474        0.72632       0.46291 
+        11            550           529            0.89874         0.79371        0.73584       0.46294 
+        12            600           577            0.90281         0.79041        0.74292       0.46872 
+        13            650           625            0.90585         0.78653        0.75067       0.47143 
+        14            700           673            0.90884         0.77896        0.76106       0.46845 
+        15            750           721            0.91155         0.77313        0.77021       0.46769 
+        16            800           769            0.91356         0.77142        0.77715       0.46423 
+        17            850           817            0.91594         0.77131        0.78219       0.45556 
+        18            900           865             0.9191         0.77136        0.78855        0.4444 
+        19            950           913            0.92234         0.76768        0.79573       0.43131 
+        20           1000           961            0.92604         0.75833        0.80376       0.41137 
+
+Best sampled shoulder test FVAF: 0.794737 at 10 bins (500 ms)
+Best sampled elbow test FVAF: 0.471430 at 13 bins (650 ms)
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task6_neural_history.mat
+RESULT: PASS. All 20 experiments completed.
+===== HW3 TASK 6: HISTORY SWEEP END =====
+
+===== HW3 TASK 6: PLOT START =====
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task6_neural_history_effects.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task6_neural_history_effects.png
+RESULT: PASS. Neural history figure saved.
+===== HW3 TASK 6: PLOT END =====
+
+===== HW3 EXPORT: START =====
+
+RESULT: FAIL.
+Error using assert
+Missing results file: C:\Users\bravo\AppData\Local\Temp\Editor_lqggr\results\task1_baseline.mat
+
+Error in LiveEditorEvaluationHelperEeditorBF0CE1F8motw (line 1417)
+        assert(isfile(hw3SourcePath), ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+{Error using <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('assert')" style="font-weight:bold">assert</a>
+Missing results file: C:\Users\bravo\AppData\Local\Temp\Editor_lqggr\results\task1_baseline.mat
+
+Error in <a href="matlab:matlab.lang.internal.introspective.errorDocCallback('rundev', 'C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\rundev.m', 1417)" style="font-weight:bold">rundev</a> (<a href="matlab: opentoline('C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\rundev.m',1417,0)">line 1417</a>)
+        assert(isfile(hw3SourcePath), ...
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+}
+
+===== HW3 EXPORT: START =====
+Project folder: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export
+Verified: task1_baseline.mat
+Verified: task2_training_folds.mat
+Verified: task3_prediction_targets.mat
+Verified: task31_joint_angles.mat
+Verified: task4_pca.mat
+Verified: task5_proprioception.mat
+Verified: task6_neural_history.mat
+Exported: task1_baseline.csv
+Exported: task2_training_folds.csv
+Exported: task3_prediction_targets.csv
+Exported: task31_joint_angles.csv
+Exported: task4_pca.csv
+Exported: task5_shoulder_proprioception.csv
+Exported: task5_elbow_proprioception.csv
+Exported: task6_neural_history.csv
+
+--- REPORT FIGURE CHECK ---
+FOUND:   task1_train_predictions.fig
+FOUND:   task1_test_predictions.fig
+FOUND:   task2_training_fold_effects.png
+FOUND:   task3_target_comparison.png
+FOUND:   task3_torque_predictions.png
+FOUND:   task3_X_predictions.png
+FOUND:   task3_dX_predictions.png
+FOUND:   task4_pca_effects.png
+FOUND:   task5_shoulder_proprioception.png
+FOUND:   task5_elbow_proprioception.png
+FOUND:   task6_neural_history_effects.png
+
+Export folder: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\exports
+Combined results: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\exports\hw3_all_results.mat
+Figures found: 11 of 11
+RESULT: PASS. Results exported; all listed figures found.
+===== HW3 EXPORT: END =====
