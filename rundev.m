@@ -223,7 +223,129 @@ fprintf('===== HW3 TASK 1: VISUAL CHECK END =====\n');
 
 
 %% 02 Task 2 training folds
-% Add later.
+fprintf('\n===== HW3 TASK 2: TRAINING SWEEP START =====\n');
+
+try
+    global parms
+
+    assert(exist('hw3ResultsDir', 'var') == 1, ...
+        'Run section 00 before this section.');
+
+    assert(isstruct(parms) && isfield(parms, 'patterns'), ...
+        'Lab state is missing. Run section 00.');
+
+    assert(parms.patterns.Nfolds == 10, ...
+        'This experiment expects 10 available folds.');
+
+    % Keep every setting fixed except training-fold count.
+    set_type('torque');
+    set_pca(0);
+    set_proprioceptive(0);
+    set_delays(1:20);
+
+    set_train(1);
+    set_test(10);
+
+    % Store settings and allocate results.
+    hw3Task2 = struct;
+    hw3Task2.target = parms.patterns.type;
+    hw3Task2.testFolds = 10;
+    hw3Task2.nPC = parms.pca.ncomponents;
+    hw3Task2.proprioception = parms.patterns.append_flag;
+    hw3Task2.delayBins = 1:20;
+    hw3Task2.foldCounts = (1:9)';
+    hw3Task2.trainFolds = cell(9, 1);
+    hw3Task2.fvafTrain = nan(9, 2);
+    hw3Task2.fvafTest = nan(9, 2);
+    hw3Task2.nTrainSamples = nan(9, 1);
+    hw3Task2.nTestSamples = nan(9, 1);
+    hw3Task2.elapsedSeconds = nan(9, 1);
+    hw3Task2.completed = false(9, 1);
+
+    hw3Task2File = fullfile(hw3ResultsDir, ...
+        'task2_training_folds.mat');
+
+    for hw3Task2Index = 1:numel(hw3Task2.foldCounts)
+        hw3FoldCount = hw3Task2.foldCounts(hw3Task2Index);
+        hw3TrainFolds = 1:hw3FoldCount;
+
+        set_train(hw3TrainFolds);
+
+        assert(isempty(intersect( ...
+            parms.net.patset_train, parms.net.patset_test)), ...
+            'Training and test folds overlap.');
+
+        fprintf('\n--- Experiment %d of 9 ---\n', hw3Task2Index);
+        fprintf('Training folds: ');
+        fprintf('%d ', hw3TrainFolds);
+        fprintf('\nTest fold: 10\n');
+
+        hw3Task2Timer = tic;
+        [hw3TrainFVAF, hw3TestFVAF] = train;
+        hw3Elapsed = toc(hw3Task2Timer);
+
+        assert(numel(hw3TrainFVAF) == 2 && ...
+               numel(hw3TestFVAF) == 2, ...
+            'Expected shoulder and elbow FVAF values.');
+
+        assert(all(isfinite( ...
+            [hw3TrainFVAF(:); hw3TestFVAF(:)])), ...
+            'FVAF contains NaN or Inf.');
+
+        hw3Task2.trainFolds{hw3Task2Index} = hw3TrainFolds;
+        hw3Task2.fvafTrain(hw3Task2Index, :) = ...
+            hw3TrainFVAF(:)';
+        hw3Task2.fvafTest(hw3Task2Index, :) = ...
+            hw3TestFVAF(:)';
+        hw3Task2.nTrainSamples(hw3Task2Index) = ...
+            size(parms.patterns.input_train, 1);
+        hw3Task2.nTestSamples(hw3Task2Index) = ...
+            size(parms.patterns.input_test, 1);
+        hw3Task2.elapsedSeconds(hw3Task2Index) = hw3Elapsed;
+        hw3Task2.completed(hw3Task2Index) = true;
+
+        % Save after each successful experiment.
+        save(hw3Task2File, 'hw3Task2');
+
+        fprintf('                  Shoulder       Elbow\n');
+        fprintf('Training FVAF:    % .6f      % .6f\n', ...
+            hw3TrainFVAF(1), hw3TrainFVAF(2));
+        fprintf('Test FVAF:        % .6f      % .6f\n', ...
+            hw3TestFVAF(1), hw3TestFVAF(2));
+        fprintf('Elapsed: %.2f seconds. Progress saved.\n', ...
+            hw3Elapsed);
+    end
+
+    % Display one table containing all experiments.
+    hw3Task2Table = table( ...
+        hw3Task2.foldCounts, ...
+        hw3Task2.nTrainSamples, ...
+        hw3Task2.fvafTrain(:, 1), ...
+        hw3Task2.fvafTest(:, 1), ...
+        hw3Task2.fvafTrain(:, 2), ...
+        hw3Task2.fvafTest(:, 2), ...
+        'VariableNames', { ...
+        'TrainFolds', 'TrainSamples', ...
+        'TrainShoulder', 'TestShoulder', ...
+        'TrainElbow', 'TestElbow'});
+
+    hw3Task2.table = hw3Task2Table;
+    save(hw3Task2File, 'hw3Task2');
+
+    fprintf('\n--- TASK 2 SUMMARY ---\n');
+    disp(hw3Task2Table);
+
+    fprintf('Saved results: %s\n', hw3Task2File);
+    fprintf('RESULT: PASS. All nine experiments completed.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 2: TRAINING SWEEP END =====\n');
 
 
 %% 03 Task 3 prediction targets
