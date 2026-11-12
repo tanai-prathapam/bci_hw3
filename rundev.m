@@ -980,8 +980,205 @@ fprintf('RESULT: PASS. PCA figure saved.\n');
 fprintf('===== HW3 TASK 4: PLOT END =====\n');
 
 
-%% 05 Task 5 proprioception
-% Add later.
+%% 05 Task 5 proprioception sweep
+fprintf('\n===== HW3 TASK 5: SWEEP START =====\n');
+
+try
+    global parms
+
+    assert(exist('hw3ResultsDir', 'var') == 1, ...
+        'Run section 00 first.');
+
+    assert(isstruct(parms) && isfield(parms, 'patterns'), ...
+        'Lab state is missing. Run section 00.');
+
+    % Fixed experimental settings.
+    set_type('torque');
+    set_pca(0);
+    set_delays(1:20);
+    set_train(1);
+    set_test(10);
+
+    hw3Task5 = struct;
+    hw3Task5.target = 'torque';
+    hw3Task5.testFolds = 10;
+    hw3Task5.nPC = 0;
+    hw3Task5.delayBins = 1:20;
+    hw3Task5.foldCounts = (1:9)';
+    hw3Task5.proprioceptionModes = [0 1];
+
+    % Dimensions: training-fold count, output joint, off/on mode.
+    hw3Task5.fvafTrain = nan(9, 2, 2);
+    hw3Task5.fvafTest = nan(9, 2, 2);
+    hw3Task5.nTrainSamples = nan(9, 2);
+    hw3Task5.inputColumns = nan(9, 2);
+    hw3Task5.elapsedSeconds = nan(9, 2);
+    hw3Task5.completed = false(9, 2);
+    hw3Task5.trainFolds = cell(9, 1);
+
+    hw3Task5File = fullfile(hw3ResultsDir, ...
+        'task5_proprioception.mat');
+
+    for hw3FoldIndex = 1:9
+        hw3TrainFolds = 1:hw3FoldIndex;
+        set_train(hw3TrainFolds);
+        hw3Task5.trainFolds{hw3FoldIndex} = hw3TrainFolds;
+
+        assert(isempty(intersect( ...
+            parms.net.patset_train, parms.net.patset_test)), ...
+            'Training and test folds overlap.');
+
+        for hw3ModeIndex = 1:2
+            hw3Proprioception = ...
+                hw3Task5.proprioceptionModes(hw3ModeIndex);
+            set_proprioceptive(hw3Proprioception);
+
+            fprintf('\n--- Training folds: 1:%d; proprioception: %d ---\n', ...
+                hw3FoldIndex, hw3Proprioception);
+
+            hw3Task5Timer = tic;
+            [hw3TrainFVAF, hw3TestFVAF] = train;
+            hw3Elapsed = toc(hw3Task5Timer);
+
+            assert(all(isfinite( ...
+                [hw3TrainFVAF(:); hw3TestFVAF(:)])), ...
+                'FVAF contains NaN or Inf.');
+
+            % 960 neural inputs + optional 4 joint inputs + intercept.
+            hw3ExpectedColumns = 961 + 4 * hw3Proprioception;
+            assert(size(parms.patterns.input_train, 2) == ...
+                   hw3ExpectedColumns, ...
+                'Unexpected number of model input columns.');
+
+            hw3Task5.fvafTrain(hw3FoldIndex, :, hw3ModeIndex) = ...
+                hw3TrainFVAF(:)';
+            hw3Task5.fvafTest(hw3FoldIndex, :, hw3ModeIndex) = ...
+                hw3TestFVAF(:)';
+            hw3Task5.nTrainSamples(hw3FoldIndex, hw3ModeIndex) = ...
+                size(parms.patterns.input_train, 1);
+            hw3Task5.inputColumns(hw3FoldIndex, hw3ModeIndex) = ...
+                size(parms.patterns.input_train, 2);
+            hw3Task5.elapsedSeconds(hw3FoldIndex, hw3ModeIndex) = ...
+                hw3Elapsed;
+            hw3Task5.completed(hw3FoldIndex, hw3ModeIndex) = true;
+
+            save(hw3Task5File, 'hw3Task5');
+
+            fprintf('                  Shoulder       Elbow\n');
+            fprintf('Training FVAF:    % .6f      % .6f\n', ...
+                hw3TrainFVAF(1), hw3TrainFVAF(2));
+            fprintf('Test FVAF:        % .6f      % .6f\n', ...
+                hw3TestFVAF(1), hw3TestFVAF(2));
+            fprintf('Input columns: %d. Elapsed: %.2f seconds.\n', ...
+                hw3ExpectedColumns, hw3Elapsed);
+            fprintf('Progress saved.\n');
+        end
+    end
+
+    hw3JointNames = {'Shoulder', 'Elbow'};
+    hw3Task5.tables = cell(2, 1);
+
+    for hw3JointIndex = 1:2
+        hw3Task5.tables{hw3JointIndex} = table( ...
+            hw3Task5.foldCounts, ...
+            hw3Task5.fvafTrain(:, hw3JointIndex, 1), ...
+            hw3Task5.fvafTrain(:, hw3JointIndex, 2), ...
+            hw3Task5.fvafTest(:, hw3JointIndex, 1), ...
+            hw3Task5.fvafTest(:, hw3JointIndex, 2), ...
+            'VariableNames', {'TrainFolds', ...
+            'TrainOff', 'TrainOn', 'TestOff', 'TestOn'});
+
+        fprintf('\n--- TASK 5 SUMMARY: %s ---\n', ...
+            hw3JointNames{hw3JointIndex});
+        disp(hw3Task5.tables{hw3JointIndex});
+    end
+
+    save(hw3Task5File, 'hw3Task5');
+
+    fprintf('Saved: %s\n', hw3Task5File);
+    fprintf('RESULT: PASS. All 18 experiments completed.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 5: SWEEP END =====\n');
+
+
+%% 051 Task 5 proprioception plots
+fprintf('\n===== HW3 TASK 5: PLOTS START =====\n');
+
+assert(exist('hw3ResultsDir', 'var') == 1 && ...
+       exist('hw3FiguresDir', 'var') == 1, ...
+    'Run section 00 first.');
+
+hw3Task5Loaded = load(fullfile(hw3ResultsDir, ...
+    'task5_proprioception.mat'), 'hw3Task5');
+hw3Task5 = hw3Task5Loaded.hw3Task5;
+
+assert(all(hw3Task5.completed(:)), ...
+    'Complete all Task 5 experiments before plotting.');
+
+hw3JointNames = {'Shoulder', 'Elbow'};
+
+for hw3JointIndex = 1:2
+    hw3Task5Figure = figure(50 + hw3JointIndex);
+    clf(hw3Task5Figure);
+
+    plot(hw3Task5.foldCounts, ...
+        hw3Task5.fvafTrain(:, hw3JointIndex, 1), ...
+        '-o', 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5);
+    hold on
+
+    plot(hw3Task5.foldCounts, ...
+        hw3Task5.fvafTrain(:, hw3JointIndex, 2), ...
+        '-s', 'Color', [0.8500 0.3250 0.0980], 'LineWidth', 1.5);
+
+    plot(hw3Task5.foldCounts, ...
+        hw3Task5.fvafTest(:, hw3JointIndex, 1), ...
+        '--o', 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5);
+
+    plot(hw3Task5.foldCounts, ...
+        hw3Task5.fvafTest(:, hw3JointIndex, 2), ...
+        '--s', 'Color', [0.8500 0.3250 0.0980], 'LineWidth', 1.5);
+    hold off
+
+    xlabel('Number of training folds');
+    ylabel('Fraction of variance accounted for (FVAF)');
+    title(sprintf('Task 5: %s torque and proprioceptive inputs', ...
+        hw3JointNames{hw3JointIndex}));
+
+    legend('Train: proprioception off', ...
+        'Train: proprioception on', ...
+        'Test: proprioception off', ...
+        'Test: proprioception on', ...
+        'Location', 'best');
+
+    xticks(1:9);
+    xlim([1 9]);
+    grid on
+
+    hw3Task5Axes = gca;
+    hw3Task5Axes.Toolbar.Visible = 'off';
+    drawnow;
+
+    hw3Task5FigureBase = fullfile(hw3FiguresDir, ...
+        sprintf('task5_%s_proprioception', ...
+        lower(hw3JointNames{hw3JointIndex})));
+
+    savefig(hw3Task5Figure, [hw3Task5FigureBase '.fig']);
+    exportgraphics(hw3Task5Figure, ...
+        [hw3Task5FigureBase '.png'], 'Resolution', 300);
+
+    fprintf('Saved: %s.fig\n', hw3Task5FigureBase);
+    fprintf('Saved: %s.png\n', hw3Task5FigureBase);
+end
+
+fprintf('RESULT: PASS. Both joint comparison figures saved.\n');
+fprintf('===== HW3 TASK 5: PLOTS END =====\n');
 
 
 %% 06 Task 6 neural history

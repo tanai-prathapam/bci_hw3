@@ -2337,3 +2337,443 @@ Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai
 Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task4_pca_effects.png
 RESULT: PASS. PCA figure saved.
 ===== HW3 TASK 4: PLOT END =====
+
+===== HW3 TASK 5: SWEEP START =====
+ok
+No change
+
+--- Training folds: 1:1; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9781    0.9400
+
+Test Fraction of Variance Accounted For:
+    0.2607   -0.6840
+
+                  Shoulder       Elbow
+Training FVAF:     0.978052       0.940034
+Test FVAF:         0.260734      -0.684016
+Input columns: 961. Elapsed: 0.24 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:1; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9834    0.9513
+
+Test Fraction of Variance Accounted For:
+    0.3191   -0.4016
+
+                  Shoulder       Elbow
+Training FVAF:     0.983365       0.951331
+Test FVAF:         0.319146      -0.401559
+Input columns: 965. Elapsed: 0.26 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:2; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9260    0.8038
+
+Test Fraction of Variance Accounted For:
+    0.7583    0.4114
+
+                  Shoulder       Elbow
+Training FVAF:     0.926037       0.803756
+Test FVAF:         0.758331       0.411375
+Input columns: 961. Elapsed: 0.40 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:2; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9421    0.8335
+
+Test Fraction of Variance Accounted For:
+    0.7986    0.4669
+
+                  Shoulder       Elbow
+Training FVAF:     0.942059       0.833472
+Test FVAF:         0.798581       0.466865
+Input columns: 965. Elapsed: 0.42 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:3; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9075    0.7566
+
+Test Fraction of Variance Accounted For:
+    0.7872    0.4767
+
+                  Shoulder       Elbow
+Training FVAF:     0.907536       0.756621
+Test FVAF:         0.787203       0.476743
+Input columns: 961. Elapsed: 0.52 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:3; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9261    0.7945
+
+Test Fraction of Variance Accounted For:
+    0.8281    0.5220
+
+                  Shoulder       Elbow
+Training FVAF:     0.926109       0.794500
+Test FVAF:         0.828149       0.522015
+Input columns: 965. Elapsed: 0.54 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:4; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8910    0.7090
+
+Test Fraction of Variance Accounted For:
+    0.7869    0.5087
+
+                  Shoulder       Elbow
+Training FVAF:     0.891001       0.708950
+Test FVAF:         0.786947       0.508660
+Input columns: 961. Elapsed: 0.64 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:4; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9144    0.7510
+
+Test Fraction of Variance Accounted For:
+    0.8187    0.5629
+
+                  Shoulder       Elbow
+Training FVAF:     0.914361       0.751028
+Test FVAF:         0.818693       0.562877
+Input columns: 965. Elapsed: 0.69 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:5; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8505    0.6426
+
+Test Fraction of Variance Accounted For:
+    0.7777    0.5125
+
+                  Shoulder       Elbow
+Training FVAF:     0.850510       0.642647
+Test FVAF:         0.777725       0.512502
+Input columns: 961. Elapsed: 0.81 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:5; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8864    0.6949
+
+Test Fraction of Variance Accounted For:
+    0.8012    0.5579
+
+                  Shoulder       Elbow
+Training FVAF:     0.886365       0.694927
+Test FVAF:         0.801199       0.557895
+Input columns: 965. Elapsed: 0.82 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:6; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8350    0.6215
+
+Test Fraction of Variance Accounted For:
+    0.7981    0.4962
+
+                  Shoulder       Elbow
+Training FVAF:     0.835024       0.621542
+Test FVAF:         0.798075       0.496225
+Input columns: 961. Elapsed: 0.94 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:6; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8750    0.6809
+
+Test Fraction of Variance Accounted For:
+    0.8111    0.5331
+
+                  Shoulder       Elbow
+Training FVAF:     0.874993       0.680871
+Test FVAF:         0.811146       0.533092
+Input columns: 965. Elapsed: 1.07 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:7; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8340    0.6161
+
+Test Fraction of Variance Accounted For:
+    0.7981    0.4968
+
+                  Shoulder       Elbow
+Training FVAF:     0.834042       0.616057
+Test FVAF:         0.798142       0.496761
+Input columns: 961. Elapsed: 1.25 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:7; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8743    0.6779
+
+Test Fraction of Variance Accounted For:
+    0.8152    0.5331
+
+                  Shoulder       Elbow
+Training FVAF:     0.874337       0.677874
+Test FVAF:         0.815244       0.533056
+Input columns: 965. Elapsed: 1.31 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:8; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8068    0.5740
+
+Test Fraction of Variance Accounted For:
+    0.8079    0.4971
+
+                  Shoulder       Elbow
+Training FVAF:     0.806849       0.574015
+Test FVAF:         0.807875       0.497130
+Input columns: 961. Elapsed: 1.27 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:8; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8556    0.6509
+
+Test Fraction of Variance Accounted For:
+    0.8108    0.5278
+
+                  Shoulder       Elbow
+Training FVAF:     0.855627       0.650870
+Test FVAF:         0.810831       0.527840
+Input columns: 965. Elapsed: 1.30 seconds.
+Progress saved.
+Proprioceptive flag set to 0
+
+--- Training folds: 1:9; proprioception: 0 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8083    0.5737
+
+Test Fraction of Variance Accounted For:
+    0.8139    0.5074
+
+                  Shoulder       Elbow
+Training FVAF:     0.808337       0.573735
+Test FVAF:         0.813915       0.507385
+Input columns: 961. Elapsed: 1.36 seconds.
+Progress saved.
+Proprioceptive flag set to 1
+
+--- Training folds: 1:9; proprioception: 1 ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8549    0.6494
+
+Test Fraction of Variance Accounted For:
+    0.8248    0.5418
+
+                  Shoulder       Elbow
+Training FVAF:     0.854924       0.649437
+Test FVAF:         0.824812       0.541792
+Input columns: 965. Elapsed: 1.49 seconds.
+Progress saved.
+
+--- TASK 5 SUMMARY: Shoulder ---
+    <strong>TrainFolds</strong>    <strong>TrainOff</strong>    <strong>TrainOn</strong>    <strong>TestOff</strong>    <strong>TestOn</strong> 
+    <strong>__________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>_______</strong>    <strong>_______</strong>
+
+        1         0.97805     0.98336    0.26073    0.31915
+        2         0.92604     0.94206    0.75833    0.79858
+        3         0.90754     0.92611     0.7872    0.82815
+        4           0.891     0.91436    0.78695    0.81869
+        5         0.85051     0.88636    0.77773     0.8012
+        6         0.83502     0.87499    0.79807    0.81115
+        7         0.83404     0.87434    0.79814    0.81524
+        8         0.80685     0.85563    0.80788    0.81083
+        9         0.80834     0.85492    0.81392    0.82481
+
+
+--- TASK 5 SUMMARY: Elbow ---
+    <strong>TrainFolds</strong>    <strong>TrainOff</strong>    <strong>TrainOn</strong>    <strong>TestOff</strong>      <strong>TestOn</strong> 
+    <strong>__________</strong>    <strong>________</strong>    <strong>_______</strong>    <strong>________</strong>    <strong>________</strong>
+
+        1         0.94003     0.95133    -0.68402    -0.40156
+        2         0.80376     0.83347     0.41137     0.46687
+        3         0.75662      0.7945     0.47674     0.52202
+        4         0.70895     0.75103     0.50866     0.56288
+        5         0.64265     0.69493      0.5125      0.5579
+        6         0.62154     0.68087     0.49622     0.53309
+        7         0.61606     0.67787     0.49676     0.53306
+        8         0.57401     0.65087     0.49713     0.52784
+        9         0.57373     0.64944     0.50739     0.54179
+
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task5_proprioception.mat
+RESULT: PASS. All 18 experiments completed.
+===== HW3 TASK 5: SWEEP END =====
+
+===== HW3 TASK 5: PLOTS START =====
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task5_shoulder_proprioception.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task5_shoulder_proprioception.png
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task5_elbow_proprioception.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task5_elbow_proprioception.png
+RESULT: PASS. Both joint comparison figures saved.
+===== HW3 TASK 5: PLOTS END =====
