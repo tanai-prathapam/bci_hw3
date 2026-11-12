@@ -170,6 +170,57 @@ end
 
 fprintf('===== HW3 TASK 1: TRAINING END =====\n');
 
+% TASK 1: Inspect and save prediction displays.
+fprintf('\n===== HW3 TASK 1: VISUAL CHECK START =====\n');
+
+try
+    global parms
+
+    assert(exist('hw3Task1', 'var') == 1, ...
+        'Run the Task 1 training block first.');
+
+    assert(strcmp(parms.patterns.type, 'torque') && ...
+        isequal(parms.net.patset_train, 1) && ...
+        isequal(parms.net.patset_test, 10), ...
+        'Current model settings do not match the Task 1 baseline.');
+
+    % Clear these figure windows before creating the lab displays.
+    figure(11); clf;
+    newwindow(11, 'train');
+
+    figure(12); clf;
+    newwindow(12, 'test');
+
+    drawnow;
+
+    % Preserve editable copies of the initial displays.
+    hw3TrainFigure = fullfile(hw3FiguresDir, ...
+        'task1_train_predictions.fig');
+    hw3TestFigure = fullfile(hw3FiguresDir, ...
+        'task1_test_predictions.fig');
+
+    savefig(figure(11), hw3TrainFigure);
+    savefig(figure(12), hw3TestFigure);
+
+    fprintf('Figure 11: TRAINING predictions\n');
+    fprintf('Figure 12: TEST predictions\n');
+    fprintf('Top subplot: shoulder torque\n');
+    fprintf('Bottom subplot: elbow torque\n');
+    fprintf('Blue: actual torque. Red: predicted torque.\n');
+    fprintf('Horizontal axis: time in seconds.\n');
+    fprintf('Use arrow and zoom buttons to inspect other intervals.\n');
+    fprintf('Saved: %s\n', hw3TrainFigure);
+    fprintf('Saved: %s\n', hw3TestFigure);
+    fprintf('\nRESULT: PASS. Both prediction displays opened and saved.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+end
+
+fprintf('===== HW3 TASK 1: VISUAL CHECK END =====\n');
+
 
 %% 02 Task 2 training folds
 % Add later.
