@@ -401,6 +401,12 @@ try
     hw3Task2FigureBase = fullfile(hw3FiguresDir, ...
         'task2_training_fold_effects');
 
+    hw3Axes = findall(hw3Task2Figure, 'Type', 'axes');
+for hw3AxesIndex = 1:numel(hw3Axes)
+    hw3Axes(hw3AxesIndex).Toolbar.Visible = 'off';
+end
+drawnow;
+
     savefig(hw3Task2Figure, [hw3Task2FigureBase '.fig']);
     exportgraphics(hw3Task2Figure, ...
         [hw3Task2FigureBase '.png'], 'Resolution', 300);
