@@ -129,3 +129,52 @@ Test FVAF:         0.260734      -0.684016
 Saved results: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task1_baseline.mat
 RESULT: PASS. Training and result saving completed.
 ===== HW3 TASK 1: TRAINING END =====
+
+===== HW3 TASK 1: TRAINING START =====
+No change
+ok
+
+--- Configuration ---
+Target: torque
+Training fold: 1
+Test fold: 10
+PCA: 0 (0 = bypass)
+Proprioception: 0
+History: 20 bins
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9781    0.9400
+
+Test Fraction of Variance Accounted For:
+    0.2607   -0.6840
+
+
+--- Fresh results ---
+Training time: 0.23 seconds
+Training matrix: 1194 rows x 961 columns
+Test matrix: 1258 rows x 961 columns
+                  Shoulder       Elbow
+Training FVAF:     0.978052       0.940034
+Test FVAF:         0.260734      -0.684016
+
+Saved results: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task1_baseline.mat
+RESULT: PASS. Training and result saving completed.
+===== HW3 TASK 1: TRAINING END =====
+
+===== HW3 TASK 1: VISUAL CHECK START =====
+
+RESULT: FAIL.
+Error using savefig (line 12)
+H must be an array of handles to valid figures.
+
+Error in LiveEditorEvaluationHelperEeditorE3B0E2D3motw (line 202)
+    savefig(figure(11), hw3TrainFigure);
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+===== HW3 TASK 1: VISUAL CHECK END =====

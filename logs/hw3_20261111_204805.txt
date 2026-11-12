@@ -1,0 +1,107 @@
+MATLAB: 25.2.0.3055257 (R2025b) Update 2
+Project root: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export
+Lab folder: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\bci_hw3_multiunit\multiunit\multiunit
+Console log: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\logs\hw3_20261111_204805.txt
+Resolved init: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\bci_hw3_multiunit\multiunit\multiunit\init.m
+Resolved train: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\bci_hw3_multiunit\multiunit\multiunit\train.m
+Brain Machine Interface Lab Exercise Module
+
+Andrew H. Fagg (fagg@ou.edu)
+David Goldberg
+Symbiotic Computing Laboratory
+School of Computer Science
+University of Oklahoma
+
+Monkey Data Collection and Analysis: Nicho Hatsopoulos (University of Chicago)
+KINArm Dynamics Model: Greg Ojakangas (Drury University)
+Lee Miller (Northwestern University
+
+Supported by NIH (NSO48845) and by the University of Oklahoma
+
+Initialization time: 0.09 seconds
+
+--- Loaded configuration ---
+Folds available: 
+     1     2     3     4     5     6     7     8     9    10
+
+
+Training set:
+     1     2     3
+
+
+Test set:
+    10
+
+
+Delays: 
+    20    19    18    17    16    15    14    13    12    11    10     9     8     7     6     5     4     3     2     1
+
+
+PCA compression: 0
+
+Proprioceptive append flag: 0
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For (last training):
+    0.9075    0.7566
+
+Test Fraction of Variance Accounted For (last training): 
+    0.7872    0.4767
+
+
+RESULT: PASS. Setup completed.
+===== HW3 SETUP: END =====
+
+===== HW3 TASK 1: TRAINING START =====
+No change
+ok
+
+--- Configuration ---
+Target: torque
+Training fold: 1
+Test fold: 10
+PCA: 0 (0 = bypass)
+Proprioception: 0
+History: 20 bins
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9781    0.9400
+
+Test Fraction of Variance Accounted For:
+    0.2607   -0.6840
+
+
+--- Fresh results ---
+Training time: 0.35 seconds
+Training matrix: 1194 rows x 961 columns
+Test matrix: 1258 rows x 961 columns
+                  Shoulder       Elbow
+Training FVAF:     0.978052       0.940034
+Test FVAF:         0.260734      -0.684016
+
+Saved results: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task1_baseline.mat
+RESULT: PASS. Training and result saving completed.
+===== HW3 TASK 1: TRAINING END =====
+
+===== HW3 TASK 1: VISUAL CHECK START =====
+Figure 11: TRAINING predictions
+Figure 12: TEST predictions
+Top subplot: shoulder torque
+Bottom subplot: elbow torque
+Blue: actual torque. Red: predicted torque.
+Horizontal axis: time in seconds.
+Use arrow and zoom buttons to inspect other intervals.
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task1_train_predictions.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task1_test_predictions.fig
+
+RESULT: PASS. Both prediction displays opened and saved.
+===== HW3 TASK 1: VISUAL CHECK END =====
