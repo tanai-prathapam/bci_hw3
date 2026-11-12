@@ -696,8 +696,107 @@ fprintf('RESULT: PASS. All prediction displays saved.\n');
 fprintf('===== HW3 TASK 3: VISUAL CHECK END =====\n');
 
 
-%% 031 Joint animation
-% Add later.
+%% 031 Joint-angle training
+fprintf('\n===== HW3 TASK 3.1: TRAINING START =====\n');
+
+try
+    global parms
+
+    assert(exist('hw3ResultsDir', 'var') == 1, ...
+        'Run section 00 before this section.');
+
+    assert(isstruct(parms) && isfield(parms, 'patterns'), ...
+        'Lab state is missing. Run section 00.');
+
+    % Keep the same configuration used in Task 3.
+    set_type('theta');
+    set_pca(0);
+    set_proprioceptive(0);
+    set_delays(1:20);
+    set_train(1:2);
+    set_test(10);
+
+    assert(isempty(intersect( ...
+        parms.net.patset_train, parms.net.patset_test)), ...
+        'Training and test folds overlap.');
+
+    hw3JointTimer = tic;
+    [hw3JointTrainFVAF, hw3JointTestFVAF] = train;
+
+    assert(all(isfinite( ...
+        [hw3JointTrainFVAF(:); hw3JointTestFVAF(:)])), ...
+        'FVAF contains NaN or Inf.');
+
+    hw3Task31 = struct;
+    hw3Task31.target = parms.patterns.type;
+    hw3Task31.trainFolds = parms.net.patset_train;
+    hw3Task31.testFolds = parms.net.patset_test;
+    hw3Task31.nPC = parms.pca.ncomponents;
+    hw3Task31.proprioception = parms.patterns.append_flag;
+    hw3Task31.delayBins = 1:20;
+    hw3Task31.elapsedSeconds = toc(hw3JointTimer);
+    hw3Task31.fvafTrain = hw3JointTrainFVAF;
+    hw3Task31.fvafTest = hw3JointTestFVAF;
+    hw3Task31.actualTrain = parms.patterns.output_train;
+    hw3Task31.predictedTrain = parms.net.output_train;
+    hw3Task31.actualTest = parms.patterns.output_test;
+    hw3Task31.predictedTest = parms.net.output_test;
+    hw3Task31.W = parms.net.W;
+
+    hw3JointFile = fullfile(hw3ResultsDir, ...
+        'task31_joint_angles.mat');
+    save(hw3JointFile, 'hw3Task31');
+
+    fprintf('\n                  Shoulder       Elbow\n');
+    fprintf('Training FVAF:    % .6f      % .6f\n', ...
+        hw3JointTrainFVAF(1), hw3JointTrainFVAF(2));
+    fprintf('Test FVAF:        % .6f      % .6f\n', ...
+        hw3JointTestFVAF(1), hw3JointTestFVAF(2));
+    fprintf('Saved: %s\n', hw3JointFile);
+    fprintf('RESULT: PASS. Joint-angle model trained and saved.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 3.1: TRAINING END =====\n');
+
+
+%% 0311 Animate training predictions
+global parms
+
+assert(strcmp(parms.patterns.type, 'theta') && ...
+       parms.net.outset_reset_flag == 0 && ...
+       parms.net.patset_reset_flag == 0, ...
+    'Run section 031 immediately before animating.');
+
+fprintf('\nStarting TRAINING animation.\n');
+fprintf('Blue = actual. Red = predicted.\n');
+fprintf('Use the stop button to end playback early.\n');
+
+animate('train');
+
+fprintf('Training animation ended.\n');
+
+
+%% 0312 Animate test predictions
+global parms
+
+assert(strcmp(parms.patterns.type, 'theta') && ...
+       parms.net.outset_reset_flag == 0 && ...
+       parms.net.patset_reset_flag == 0, ...
+    'Run section 031 immediately before animating.');
+
+fprintf('\nStarting TEST animation.\n');
+fprintf('Blue = actual. Red = predicted.\n');
+fprintf('Use the stop button to end playback early.\n');
+
+animate('test');
+
+fprintf('Test animation ended.\n');
 
 
 %% 04 Task 4 PCA
