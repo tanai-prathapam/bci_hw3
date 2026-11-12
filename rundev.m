@@ -81,7 +81,94 @@ fprintf('===== HW3 SETUP: END =====\n');
 
 
 %% 01 Task 1 baseline
-% Add the Task 1 training block here after setup is verified.
+fprintf('\n===== HW3 TASK 1: TRAINING START =====\n');
+
+try
+    global parms
+
+    assert(exist('hw3ResultsDir', 'var') == 1, ...
+        'Run section 00 before this section.');
+
+    assert(isstruct(parms), ...
+        'Lab state is missing. Run section 00.');
+
+    % Set every experimental setting explicitly.
+    set_type('torque');
+    set_pca(0);
+    set_proprioceptive(0);
+    set_delays(1:20);
+    set_train(1);
+    set_test(10);
+
+    assert(isempty(intersect( ...
+        parms.net.patset_train, parms.net.patset_test)), ...
+        'Training and test folds overlap.');
+
+    fprintf('\n--- Configuration ---\n');
+    fprintf('Target: %s\n', parms.patterns.type);
+    fprintf('Training fold: %d\n', parms.net.patset_train);
+    fprintf('Test fold: %d\n', parms.net.patset_test);
+    fprintf('PCA: %d (0 = bypass)\n', parms.pca.ncomponents);
+    fprintf('Proprioception: %d\n', parms.patterns.append_flag);
+    fprintf('History: %d bins\n', ...
+        numel(parms.patterns.elements_base));
+
+    % Train and evaluate a fresh model.
+    hw3Task1Timer = tic;
+    [hw3Task1TrainFVAF, hw3Task1TestFVAF] = train;
+    hw3Task1Seconds = toc(hw3Task1Timer);
+
+    fprintf('\n--- Fresh results ---\n');
+    fprintf('Training time: %.2f seconds\n', hw3Task1Seconds);
+    fprintf('Training matrix: %d rows x %d columns\n', ...
+        size(parms.patterns.input_train, 1), ...
+        size(parms.patterns.input_train, 2));
+    fprintf('Test matrix: %d rows x %d columns\n', ...
+        size(parms.patterns.input_test, 1), ...
+        size(parms.patterns.input_test, 2));
+
+    fprintf('                  Shoulder       Elbow\n');
+    fprintf('Training FVAF:    % .6f      % .6f\n', ...
+        hw3Task1TrainFVAF(1), hw3Task1TrainFVAF(2));
+    fprintf('Test FVAF:        % .6f      % .6f\n', ...
+        hw3Task1TestFVAF(1), hw3Task1TestFVAF(2));
+
+    assert(all(isfinite( ...
+        [hw3Task1TrainFVAF(:); hw3Task1TestFVAF(:)])), ...
+        'FVAF contains NaN or Inf.');
+
+    % Save settings, metrics, and predictions for later analysis.
+    hw3Task1 = struct;
+    hw3Task1.target = parms.patterns.type;
+    hw3Task1.trainFolds = parms.net.patset_train;
+    hw3Task1.testFolds = parms.net.patset_test;
+    hw3Task1.nPC = parms.pca.ncomponents;
+    hw3Task1.proprioception = parms.patterns.append_flag;
+    hw3Task1.delayBins = 1:20;
+    hw3Task1.fvafTrain = hw3Task1TrainFVAF;
+    hw3Task1.fvafTest = hw3Task1TestFVAF;
+    hw3Task1.elapsedSeconds = hw3Task1Seconds;
+    hw3Task1.actualTrain = parms.patterns.output_train;
+    hw3Task1.predictedTrain = parms.net.output_train;
+    hw3Task1.actualTest = parms.patterns.output_test;
+    hw3Task1.predictedTest = parms.net.output_test;
+    hw3Task1.W = parms.net.W;
+
+    hw3Task1File = fullfile(hw3ResultsDir, ...
+        'task1_baseline.mat');
+    save(hw3Task1File, 'hw3Task1');
+
+    fprintf('\nSaved results: %s\n', hw3Task1File);
+    fprintf('RESULT: PASS. Training and result saving completed.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 1: TRAINING END =====\n');
 
 
 %% 02 Task 2 training folds
