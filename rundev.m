@@ -799,8 +799,185 @@ animate('test');
 fprintf('Test animation ended.\n');
 
 
-%% 04 Task 4 PCA
-% Add later.
+%% 04 Task 4 PCA sweep
+fprintf('\n===== HW3 TASK 4: PCA SWEEP START =====\n');
+
+try
+    global parms
+
+    assert(exist('hw3ResultsDir', 'var') == 1, ...
+        'Run section 00 first.');
+
+    assert(isstruct(parms) && isfield(parms, 'patterns'), ...
+        'Lab state is missing. Run section 00.');
+
+    % Fix all settings except the number of PCA components.
+    set_type('torque');
+    set_proprioceptive(0);
+    set_delays(1:20);
+    set_train(1:2);
+    set_test(10);
+    set_pca(0);
+
+    assert(isempty(intersect( ...
+        parms.net.patset_train, parms.net.patset_test)), ...
+        'Training and test folds overlap.');
+
+    hw3Task4 = struct;
+    hw3Task4.target = 'torque';
+    hw3Task4.trainFolds = parms.net.patset_train;
+    hw3Task4.testFolds = parms.net.patset_test;
+    hw3Task4.proprioception = 0;
+    hw3Task4.delayBins = 1:20;
+    hw3Task4.pcaNote = ...
+        'PCA fitted to standardized training inputs using pn';
+
+    % First measure the uncompressed reference.
+    fprintf('\n--- Uncompressed reference ---\n');
+    [hw3BaseTrain, hw3BaseTest] = train;
+
+    hw3Task4.baselineTrain = hw3BaseTrain(:)';
+    hw3Task4.baselineTest = hw3BaseTest(:)';
+
+    % Fine spacing initially, then steps of 50, plus full dimension.
+    hw3Task4.nComponents = unique([1:50, 100:50:950, 960])';
+    hw3RunCount = numel(hw3Task4.nComponents);
+
+    hw3Task4.fvafTrain = nan(hw3RunCount, 2);
+    hw3Task4.fvafTest = nan(hw3RunCount, 2);
+    hw3Task4.elapsedSeconds = nan(hw3RunCount, 1);
+    hw3Task4.completed = false(hw3RunCount, 1);
+
+    hw3Task4File = fullfile(hw3ResultsDir, 'task4_pca.mat');
+    save(hw3Task4File, 'hw3Task4');
+
+    for hw3PCAIndex = 1:hw3RunCount
+        hw3NPC = hw3Task4.nComponents(hw3PCAIndex);
+
+        fprintf('\n--- PCA experiment %d of %d: %d components ---\n', ...
+            hw3PCAIndex, hw3RunCount, hw3NPC);
+
+        set_pca(hw3NPC);
+
+        hw3PCATimer = tic;
+        [hw3PCATrain, hw3PCATest] = train;
+        hw3PCAElapsed = toc(hw3PCATimer);
+
+        assert(all(isfinite( ...
+            [hw3PCATrain(:); hw3PCATest(:)])), ...
+            'FVAF contains NaN or Inf.');
+
+        assert(size(parms.patterns.input_train, 2) == hw3NPC + 1, ...
+            'Unexpected number of PCA features plus intercept.');
+
+        hw3Task4.fvafTrain(hw3PCAIndex, :) = hw3PCATrain(:)';
+        hw3Task4.fvafTest(hw3PCAIndex, :) = hw3PCATest(:)';
+        hw3Task4.elapsedSeconds(hw3PCAIndex) = hw3PCAElapsed;
+        hw3Task4.completed(hw3PCAIndex) = true;
+
+        % Preserve progress after every successful experiment.
+        save(hw3Task4File, 'hw3Task4');
+
+        fprintf('                  Shoulder       Elbow\n');
+        fprintf('Training FVAF:    % .6f      % .6f\n', ...
+            hw3PCATrain(1), hw3PCATrain(2));
+        fprintf('Test FVAF:        % .6f      % .6f\n', ...
+            hw3PCATest(1), hw3PCATest(2));
+        fprintf('Elapsed: %.2f seconds. Progress saved.\n', ...
+            hw3PCAElapsed);
+    end
+
+    hw3Task4.table = table( ...
+        hw3Task4.nComponents, ...
+        hw3Task4.fvafTrain(:, 1), ...
+        hw3Task4.fvafTest(:, 1), ...
+        hw3Task4.fvafTrain(:, 2), ...
+        hw3Task4.fvafTest(:, 2), ...
+        'VariableNames', {'Components', ...
+        'TrainShoulder', 'TestShoulder', ...
+        'TrainElbow', 'TestElbow'});
+
+    save(hw3Task4File, 'hw3Task4');
+
+    fprintf('\n--- TASK 4 SUMMARY ---\n');
+    disp(hw3Task4.table);
+
+    fprintf('Uncompressed training FVAF: %.6f / %.6f\n', ...
+        hw3Task4.baselineTrain(1), hw3Task4.baselineTrain(2));
+    fprintf('Uncompressed test FVAF:     %.6f / %.6f\n', ...
+        hw3Task4.baselineTest(1), hw3Task4.baselineTest(2));
+
+    [hw3BestFVAF, hw3BestIndex] = max(hw3Task4.fvafTest, [], 1);
+
+    fprintf('Best sampled shoulder test FVAF: %.6f at %d PCs\n', ...
+        hw3BestFVAF(1), ...
+        hw3Task4.nComponents(hw3BestIndex(1)));
+    fprintf('Best sampled elbow test FVAF: %.6f at %d PCs\n', ...
+        hw3BestFVAF(2), ...
+        hw3Task4.nComponents(hw3BestIndex(2)));
+
+    fprintf('Saved: %s\n', hw3Task4File);
+    fprintf('RESULT: PASS. PCA sweep completed.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 4: PCA SWEEP END =====\n');
+
+
+%% 041 Task 4 PCA plot
+fprintf('\n===== HW3 TASK 4: PLOT START =====\n');
+
+assert(exist('hw3ResultsDir', 'var') == 1 && ...
+       exist('hw3FiguresDir', 'var') == 1, ...
+    'Run section 00 first.');
+
+hw3PCALoaded = load(fullfile(hw3ResultsDir, ...
+    'task4_pca.mat'), 'hw3Task4');
+hw3Task4 = hw3PCALoaded.hw3Task4;
+
+assert(all(hw3Task4.completed), ...
+    'Complete the PCA sweep before plotting.');
+
+hw3PCAFigure = figure(40);
+clf(hw3PCAFigure);
+
+plot(hw3Task4.nComponents, hw3Task4.fvafTrain(:, 1), ...
+    '-o', 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5);
+hold on
+plot(hw3Task4.nComponents, hw3Task4.fvafTest(:, 1), ...
+    '--o', 'Color', [0 0.4470 0.7410], 'LineWidth', 1.5);
+plot(hw3Task4.nComponents, hw3Task4.fvafTrain(:, 2), ...
+    '-s', 'Color', [0.8500 0.3250 0.0980], 'LineWidth', 1.5);
+plot(hw3Task4.nComponents, hw3Task4.fvafTest(:, 2), ...
+    '--s', 'Color', [0.8500 0.3250 0.0980], 'LineWidth', 1.5);
+hold off
+
+xlabel('Number of retained PCA components');
+ylabel('Fraction of variance accounted for (FVAF)');
+title('Task 4: PCA effects on torque prediction');
+legend('Train shoulder', 'Test shoulder', ...
+    'Train elbow', 'Test elbow', 'Location', 'best');
+xlim([1 960]);
+grid on
+
+hw3PCAAxes = gca;
+hw3PCAAxes.Toolbar.Visible = 'off';
+drawnow;
+
+hw3PCABase = fullfile(hw3FiguresDir, 'task4_pca_effects');
+savefig(hw3PCAFigure, [hw3PCABase '.fig']);
+exportgraphics(hw3PCAFigure, ...
+    [hw3PCABase '.png'], 'Resolution', 300);
+
+fprintf('Saved: %s.fig\n', hw3PCABase);
+fprintf('Saved: %s.png\n', hw3PCABase);
+fprintf('RESULT: PASS. PCA figure saved.\n');
+fprintf('===== HW3 TASK 4: PLOT END =====\n');
 
 
 %% 05 Task 5 proprioception

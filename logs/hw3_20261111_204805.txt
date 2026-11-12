@@ -655,3 +655,1685 @@ Figure 32: Wrist position. Saved FIG and PNG.
 Figure 33: Wrist velocity. Saved FIG and PNG.
 RESULT: PASS. All prediction displays saved.
 ===== HW3 TASK 3: VISUAL CHECK END =====
+
+===== HW3 TASK 3.1: TRAINING START =====
+No change
+ok
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    theta
+ 
+Training Fraction of Variance Accounted For:
+    0.9097    0.8656
+
+Test Fraction of Variance Accounted For:
+    0.3081    0.2263
+
+
+                  Shoulder       Elbow
+Training FVAF:     0.909726       0.865624
+Test FVAF:         0.308098       0.226294
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task31_joint_angles.mat
+RESULT: PASS. Joint-angle model trained and saved.
+===== HW3 TASK 3.1: TRAINING END =====
+
+Starting TRAINING animation.
+Blue = actual. Red = predicted.
+Use the stop button to end playback early.
+
+Starting TEST animation.
+Blue = actual. Red = predicted.
+Use the stop button to end playback early.
+Test animation ended.
+
+Starting TRAINING animation.
+Blue = actual. Red = predicted.
+Use the stop button to end playback early.
+Training animation ended.
+
+Starting TEST animation.
+Blue = actual. Red = predicted.
+Use the stop button to end playback early.
+Test animation ended.
+
+Starting TEST animation.
+Blue = actual. Red = predicted.
+Use the stop button to end playback early.
+
+Starting TRAINING animation.
+Blue = actual. Red = predicted.
+Use the stop button to end playback early.
+
+===== HW3 TASK 4: PCA SWEEP START =====
+No change
+ok
+
+--- Uncompressed reference ---
+No PCA compression...
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9260    0.8038
+
+Test Fraction of Variance Accounted For:
+    0.7583    0.4114
+
+
+--- PCA experiment 1 of 69: 1 components ---
+Computing principal components...
+[Warning: PREPCA is an obsolete function.] 
+          Use PROCESSPCA instead.
+ 
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.0025    0.0415
+
+Test Fraction of Variance Accounted For:
+    0.0147    0.0560
+
+                  Shoulder       Elbow
+Training FVAF:     0.002467       0.041452
+Test FVAF:         0.014651       0.055961
+Elapsed: 0.60 seconds. Progress saved.
+
+--- PCA experiment 2 of 69: 2 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.5865    0.2680
+
+Test Fraction of Variance Accounted For:
+    0.5400    0.2400
+
+                  Shoulder       Elbow
+Training FVAF:     0.586522       0.268004
+Test FVAF:         0.540017       0.240013
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 3 of 69: 3 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.5866    0.2708
+
+Test Fraction of Variance Accounted For:
+    0.5400    0.2372
+
+                  Shoulder       Elbow
+Training FVAF:     0.586561       0.270835
+Test FVAF:         0.540018       0.237186
+Elapsed: 0.05 seconds. Progress saved.
+
+--- PCA experiment 4 of 69: 4 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.6271    0.2750
+
+Test Fraction of Variance Accounted For:
+    0.5782    0.2467
+
+                  Shoulder       Elbow
+Training FVAF:     0.627075       0.274980
+Test FVAF:         0.578174       0.246685
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 5 of 69: 5 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.7199    0.2865
+
+Test Fraction of Variance Accounted For:
+    0.6921    0.2692
+
+                  Shoulder       Elbow
+Training FVAF:     0.719926       0.286522
+Test FVAF:         0.692061       0.269195
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 6 of 69: 6 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.7207    0.3042
+
+Test Fraction of Variance Accounted For:
+    0.6929    0.2841
+
+                  Shoulder       Elbow
+Training FVAF:     0.720739       0.304228
+Test FVAF:         0.692908       0.284137
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 7 of 69: 7 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.7976    0.4256
+
+Test Fraction of Variance Accounted For:
+    0.7483    0.3459
+
+                  Shoulder       Elbow
+Training FVAF:     0.797558       0.425602
+Test FVAF:         0.748299       0.345929
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 8 of 69: 8 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8101    0.4382
+
+Test Fraction of Variance Accounted For:
+    0.7598    0.3636
+
+                  Shoulder       Elbow
+Training FVAF:     0.810118       0.438206
+Test FVAF:         0.759845       0.363558
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 9 of 69: 9 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8113    0.4422
+
+Test Fraction of Variance Accounted For:
+    0.7568    0.3696
+
+                  Shoulder       Elbow
+Training FVAF:     0.811286       0.442205
+Test FVAF:         0.756842       0.369556
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 10 of 69: 10 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8166    0.4616
+
+Test Fraction of Variance Accounted For:
+    0.7596    0.3828
+
+                  Shoulder       Elbow
+Training FVAF:     0.816608       0.461553
+Test FVAF:         0.759554       0.382759
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 11 of 69: 11 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8167    0.4649
+
+Test Fraction of Variance Accounted For:
+    0.7605    0.3893
+
+                  Shoulder       Elbow
+Training FVAF:     0.816671       0.464856
+Test FVAF:         0.760459       0.389296
+Elapsed: 0.03 seconds. Progress saved.
+
+--- PCA experiment 12 of 69: 12 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8278    0.4686
+
+Test Fraction of Variance Accounted For:
+    0.7756    0.3977
+
+                  Shoulder       Elbow
+Training FVAF:     0.827777       0.468589
+Test FVAF:         0.775589       0.397734
+Elapsed: 0.03 seconds. Progress saved.
+
+--- PCA experiment 13 of 69: 13 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8440    0.4686
+
+Test Fraction of Variance Accounted For:
+    0.7747    0.3970
+
+                  Shoulder       Elbow
+Training FVAF:     0.844048       0.468619
+Test FVAF:         0.774703       0.397023
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 14 of 69: 14 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8477    0.4935
+
+Test Fraction of Variance Accounted For:
+    0.7835    0.3988
+
+                  Shoulder       Elbow
+Training FVAF:     0.847684       0.493546
+Test FVAF:         0.783481       0.398760
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 15 of 69: 15 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8523    0.4972
+
+Test Fraction of Variance Accounted For:
+    0.7881    0.4001
+
+                  Shoulder       Elbow
+Training FVAF:     0.852320       0.497235
+Test FVAF:         0.788135       0.400142
+Elapsed: 0.03 seconds. Progress saved.
+
+--- PCA experiment 16 of 69: 16 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8525    0.4972
+
+Test Fraction of Variance Accounted For:
+    0.7873    0.4001
+
+                  Shoulder       Elbow
+Training FVAF:     0.852489       0.497236
+Test FVAF:         0.787250       0.400145
+Elapsed: 0.03 seconds. Progress saved.
+
+--- PCA experiment 17 of 69: 17 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8541    0.5088
+
+Test Fraction of Variance Accounted For:
+    0.7875    0.4042
+
+                  Shoulder       Elbow
+Training FVAF:     0.854128       0.508791
+Test FVAF:         0.787543       0.404214
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 18 of 69: 18 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8572    0.5139
+
+Test Fraction of Variance Accounted For:
+    0.7855    0.4062
+
+                  Shoulder       Elbow
+Training FVAF:     0.857218       0.513892
+Test FVAF:         0.785501       0.406243
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 19 of 69: 19 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8580    0.5139
+
+Test Fraction of Variance Accounted For:
+    0.7870    0.4062
+
+                  Shoulder       Elbow
+Training FVAF:     0.858000       0.513894
+Test FVAF:         0.787013       0.406194
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 20 of 69: 20 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8594    0.5141
+
+Test Fraction of Variance Accounted For:
+    0.7868    0.4057
+
+                  Shoulder       Elbow
+Training FVAF:     0.859423       0.514052
+Test FVAF:         0.786827       0.405726
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 21 of 69: 21 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8595    0.5163
+
+Test Fraction of Variance Accounted For:
+    0.7867    0.4093
+
+                  Shoulder       Elbow
+Training FVAF:     0.859460       0.516338
+Test FVAF:         0.786666       0.409293
+Elapsed: 0.05 seconds. Progress saved.
+
+--- PCA experiment 22 of 69: 22 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8598    0.5194
+
+Test Fraction of Variance Accounted For:
+    0.7870    0.4050
+
+                  Shoulder       Elbow
+Training FVAF:     0.859843       0.519353
+Test FVAF:         0.786968       0.404971
+Elapsed: 0.03 seconds. Progress saved.
+
+--- PCA experiment 23 of 69: 23 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8614    0.5194
+
+Test Fraction of Variance Accounted For:
+    0.7876    0.4041
+
+                  Shoulder       Elbow
+Training FVAF:     0.861434       0.519435
+Test FVAF:         0.787644       0.404066
+Elapsed: 0.03 seconds. Progress saved.
+
+--- PCA experiment 24 of 69: 24 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8615    0.5281
+
+Test Fraction of Variance Accounted For:
+    0.7878    0.4102
+
+                  Shoulder       Elbow
+Training FVAF:     0.861508       0.528142
+Test FVAF:         0.787833       0.410210
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 25 of 69: 25 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8615    0.5348
+
+Test Fraction of Variance Accounted For:
+    0.7880    0.4179
+
+                  Shoulder       Elbow
+Training FVAF:     0.861524       0.534800
+Test FVAF:         0.787963       0.417884
+Elapsed: 0.03 seconds. Progress saved.
+
+--- PCA experiment 26 of 69: 26 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8616    0.5355
+
+Test Fraction of Variance Accounted For:
+    0.7881    0.4172
+
+                  Shoulder       Elbow
+Training FVAF:     0.861633       0.535477
+Test FVAF:         0.788100       0.417224
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 27 of 69: 27 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8616    0.5362
+
+Test Fraction of Variance Accounted For:
+    0.7881    0.4172
+
+                  Shoulder       Elbow
+Training FVAF:     0.861634       0.536218
+Test FVAF:         0.788122       0.417248
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 28 of 69: 28 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8617    0.5367
+
+Test Fraction of Variance Accounted For:
+    0.7882    0.4163
+
+                  Shoulder       Elbow
+Training FVAF:     0.861657       0.536739
+Test FVAF:         0.788208       0.416289
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 29 of 69: 29 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8620    0.5383
+
+Test Fraction of Variance Accounted For:
+    0.7892    0.4162
+
+                  Shoulder       Elbow
+Training FVAF:     0.861965       0.538319
+Test FVAF:         0.789208       0.416157
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 30 of 69: 30 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8622    0.5471
+
+Test Fraction of Variance Accounted For:
+    0.7881    0.4139
+
+                  Shoulder       Elbow
+Training FVAF:     0.862187       0.547069
+Test FVAF:         0.788093       0.413938
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 31 of 69: 31 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8626    0.5548
+
+Test Fraction of Variance Accounted For:
+    0.7881    0.4212
+
+                  Shoulder       Elbow
+Training FVAF:     0.862596       0.554839
+Test FVAF:         0.788123       0.421227
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 32 of 69: 32 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8627    0.5561
+
+Test Fraction of Variance Accounted For:
+    0.7878    0.4209
+
+                  Shoulder       Elbow
+Training FVAF:     0.862724       0.556078
+Test FVAF:         0.787766       0.420922
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 33 of 69: 33 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8627    0.5613
+
+Test Fraction of Variance Accounted For:
+    0.7877    0.4220
+
+                  Shoulder       Elbow
+Training FVAF:     0.862726       0.561262
+Test FVAF:         0.787726       0.422016
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 34 of 69: 34 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8629    0.5613
+
+Test Fraction of Variance Accounted For:
+    0.7875    0.4219
+
+                  Shoulder       Elbow
+Training FVAF:     0.862899       0.561340
+Test FVAF:         0.787485       0.421908
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 35 of 69: 35 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8640    0.5655
+
+Test Fraction of Variance Accounted For:
+    0.7885    0.4211
+
+                  Shoulder       Elbow
+Training FVAF:     0.863991       0.565493
+Test FVAF:         0.788496       0.421095
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 36 of 69: 36 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8644    0.5702
+
+Test Fraction of Variance Accounted For:
+    0.7883    0.4265
+
+                  Shoulder       Elbow
+Training FVAF:     0.864388       0.570194
+Test FVAF:         0.788309       0.426479
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 37 of 69: 37 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8653    0.5702
+
+Test Fraction of Variance Accounted For:
+    0.7883    0.4265
+
+                  Shoulder       Elbow
+Training FVAF:     0.865253       0.570194
+Test FVAF:         0.788339       0.426495
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 38 of 69: 38 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8655    0.5703
+
+Test Fraction of Variance Accounted For:
+    0.7884    0.4266
+
+                  Shoulder       Elbow
+Training FVAF:     0.865515       0.570257
+Test FVAF:         0.788368       0.426636
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 39 of 69: 39 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8658    0.5707
+
+Test Fraction of Variance Accounted For:
+    0.7876    0.4271
+
+                  Shoulder       Elbow
+Training FVAF:     0.865787       0.570689
+Test FVAF:         0.787561       0.427101
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 40 of 69: 40 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8665    0.5734
+
+Test Fraction of Variance Accounted For:
+    0.7871    0.4294
+
+                  Shoulder       Elbow
+Training FVAF:     0.866478       0.573376
+Test FVAF:         0.787074       0.429384
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 41 of 69: 41 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8671    0.5737
+
+Test Fraction of Variance Accounted For:
+    0.7871    0.4298
+
+                  Shoulder       Elbow
+Training FVAF:     0.867110       0.573661
+Test FVAF:         0.787112       0.429833
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 42 of 69: 42 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8673    0.5779
+
+Test Fraction of Variance Accounted For:
+    0.7877    0.4358
+
+                  Shoulder       Elbow
+Training FVAF:     0.867325       0.577920
+Test FVAF:         0.787653       0.435788
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 43 of 69: 43 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8687    0.5785
+
+Test Fraction of Variance Accounted For:
+    0.7890    0.4353
+
+                  Shoulder       Elbow
+Training FVAF:     0.868703       0.578529
+Test FVAF:         0.788951       0.435324
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 44 of 69: 44 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8687    0.5789
+
+Test Fraction of Variance Accounted For:
+    0.7889    0.4351
+
+                  Shoulder       Elbow
+Training FVAF:     0.868704       0.578877
+Test FVAF:         0.788946       0.435051
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 45 of 69: 45 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8687    0.5804
+
+Test Fraction of Variance Accounted For:
+    0.7890    0.4352
+
+                  Shoulder       Elbow
+Training FVAF:     0.868712       0.580400
+Test FVAF:         0.788962       0.435169
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 46 of 69: 46 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8690    0.5812
+
+Test Fraction of Variance Accounted For:
+    0.7895    0.4363
+
+                  Shoulder       Elbow
+Training FVAF:     0.868972       0.581212
+Test FVAF:         0.789519       0.436266
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 47 of 69: 47 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8690    0.5867
+
+Test Fraction of Variance Accounted For:
+    0.7896    0.4380
+
+                  Shoulder       Elbow
+Training FVAF:     0.868988       0.586700
+Test FVAF:         0.789601       0.438048
+Elapsed: 0.05 seconds. Progress saved.
+
+--- PCA experiment 48 of 69: 48 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8690    0.5869
+
+Test Fraction of Variance Accounted For:
+    0.7896    0.4395
+
+                  Shoulder       Elbow
+Training FVAF:     0.868990       0.586917
+Test FVAF:         0.789602       0.439461
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 49 of 69: 49 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8690    0.5869
+
+Test Fraction of Variance Accounted For:
+    0.7897    0.4393
+
+                  Shoulder       Elbow
+Training FVAF:     0.869014       0.586929
+Test FVAF:         0.789663       0.439293
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 50 of 69: 50 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8690    0.5870
+
+Test Fraction of Variance Accounted For:
+    0.7897    0.4396
+
+                  Shoulder       Elbow
+Training FVAF:     0.869014       0.587048
+Test FVAF:         0.789658       0.439562
+Elapsed: 0.04 seconds. Progress saved.
+
+--- PCA experiment 51 of 69: 100 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8774    0.6291
+
+Test Fraction of Variance Accounted For:
+    0.7978    0.4703
+
+                  Shoulder       Elbow
+Training FVAF:     0.877351       0.629119
+Test FVAF:         0.797776       0.470256
+Elapsed: 0.06 seconds. Progress saved.
+
+--- PCA experiment 52 of 69: 150 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8820    0.6520
+
+Test Fraction of Variance Accounted For:
+    0.8005    0.4803
+
+                  Shoulder       Elbow
+Training FVAF:     0.881996       0.651968
+Test FVAF:         0.800494       0.480298
+Elapsed: 0.07 seconds. Progress saved.
+
+--- PCA experiment 53 of 69: 200 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8840    0.6613
+
+Test Fraction of Variance Accounted For:
+    0.7964    0.4852
+
+                  Shoulder       Elbow
+Training FVAF:     0.884024       0.661268
+Test FVAF:         0.796405       0.485157
+Elapsed: 0.08 seconds. Progress saved.
+
+--- PCA experiment 54 of 69: 250 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8875    0.6766
+
+Test Fraction of Variance Accounted For:
+    0.7972    0.4872
+
+                  Shoulder       Elbow
+Training FVAF:     0.887547       0.676569
+Test FVAF:         0.797235       0.487182
+Elapsed: 0.09 seconds. Progress saved.
+
+--- PCA experiment 55 of 69: 300 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8903    0.6866
+
+Test Fraction of Variance Accounted For:
+    0.7936    0.4819
+
+                  Shoulder       Elbow
+Training FVAF:     0.890320       0.686595
+Test FVAF:         0.793642       0.481923
+Elapsed: 0.08 seconds. Progress saved.
+
+--- PCA experiment 56 of 69: 350 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8930    0.6958
+
+Test Fraction of Variance Accounted For:
+    0.7957    0.4865
+
+                  Shoulder       Elbow
+Training FVAF:     0.893011       0.695786
+Test FVAF:         0.795681       0.486494
+Elapsed: 0.10 seconds. Progress saved.
+
+--- PCA experiment 57 of 69: 400 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8950    0.7052
+
+Test Fraction of Variance Accounted For:
+    0.7980    0.4824
+
+                  Shoulder       Elbow
+Training FVAF:     0.894969       0.705249
+Test FVAF:         0.797959       0.482386
+Elapsed: 0.11 seconds. Progress saved.
+
+--- PCA experiment 58 of 69: 450 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.8973    0.7131
+
+Test Fraction of Variance Accounted For:
+    0.7945    0.4806
+
+                  Shoulder       Elbow
+Training FVAF:     0.897268       0.713102
+Test FVAF:         0.794533       0.480576
+Elapsed: 0.25 seconds. Progress saved.
+
+--- PCA experiment 59 of 69: 500 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9009    0.7260
+
+Test Fraction of Variance Accounted For:
+    0.7937    0.4801
+
+                  Shoulder       Elbow
+Training FVAF:     0.900892       0.725959
+Test FVAF:         0.793684       0.480069
+Elapsed: 0.16 seconds. Progress saved.
+
+--- PCA experiment 60 of 69: 550 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9044    0.7355
+
+Test Fraction of Variance Accounted For:
+    0.7916    0.4737
+
+                  Shoulder       Elbow
+Training FVAF:     0.904361       0.735463
+Test FVAF:         0.791589       0.473693
+Elapsed: 0.17 seconds. Progress saved.
+
+--- PCA experiment 61 of 69: 600 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9078    0.7472
+
+Test Fraction of Variance Accounted For:
+    0.7921    0.4688
+
+                  Shoulder       Elbow
+Training FVAF:     0.907842       0.747249
+Test FVAF:         0.792057       0.468834
+Elapsed: 0.18 seconds. Progress saved.
+
+--- PCA experiment 62 of 69: 650 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9113    0.7567
+
+Test Fraction of Variance Accounted For:
+    0.7951    0.4702
+
+                  Shoulder       Elbow
+Training FVAF:     0.911260       0.756733
+Test FVAF:         0.795125       0.470152
+Elapsed: 0.20 seconds. Progress saved.
+
+--- PCA experiment 63 of 69: 700 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9131    0.7659
+
+Test Fraction of Variance Accounted For:
+    0.7945    0.4658
+
+                  Shoulder       Elbow
+Training FVAF:     0.913093       0.765914
+Test FVAF:         0.794471       0.465844
+Elapsed: 0.28 seconds. Progress saved.
+
+--- PCA experiment 64 of 69: 750 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9150    0.7751
+
+Test Fraction of Variance Accounted For:
+    0.7959    0.4620
+
+                  Shoulder       Elbow
+Training FVAF:     0.914969       0.775079
+Test FVAF:         0.795941       0.461965
+Elapsed: 0.27 seconds. Progress saved.
+
+--- PCA experiment 65 of 69: 800 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9174    0.7841
+
+Test Fraction of Variance Accounted For:
+    0.7953    0.4596
+
+                  Shoulder       Elbow
+Training FVAF:     0.917440       0.784134
+Test FVAF:         0.795264       0.459610
+Elapsed: 0.32 seconds. Progress saved.
+
+--- PCA experiment 66 of 69: 850 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9197    0.7916
+
+Test Fraction of Variance Accounted For:
+    0.7945    0.4463
+
+                  Shoulder       Elbow
+Training FVAF:     0.919662       0.791588
+Test FVAF:         0.794506       0.446301
+Elapsed: 0.35 seconds. Progress saved.
+
+--- PCA experiment 67 of 69: 900 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9225    0.7954
+
+Test Fraction of Variance Accounted For:
+    0.7824    0.4434
+
+                  Shoulder       Elbow
+Training FVAF:     0.922456       0.795403
+Test FVAF:         0.782372       0.443414
+Elapsed: 0.34 seconds. Progress saved.
+
+--- PCA experiment 68 of 69: 950 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9259    0.8033
+
+Test Fraction of Variance Accounted For:
+    0.7588    0.4165
+
+                  Shoulder       Elbow
+Training FVAF:     0.925915       0.803287
+Test FVAF:         0.758781       0.416456
+Elapsed: 0.42 seconds. Progress saved.
+
+--- PCA experiment 69 of 69: 960 components ---
+Compressing training set...
+Compressing test set...
+Done.
+Reconfiguring output side...
+Training...
+Evaluating...
+ 
+Output type:
+    torque
+ 
+Training Fraction of Variance Accounted For:
+    0.9260    0.8038
+
+Test Fraction of Variance Accounted For:
+    0.7583    0.4114
+
+                  Shoulder       Elbow
+Training FVAF:     0.926037       0.803756
+Test FVAF:         0.758331       0.411375
+Elapsed: 0.44 seconds. Progress saved.
+
+--- TASK 4 SUMMARY ---
+    <strong>Components</strong>    <strong>TrainShoulder</strong>    <strong>TestShoulder</strong>    <strong>TrainElbow</strong>    <strong>TestElbow</strong>
+    <strong>__________</strong>    <strong>_____________</strong>    <strong>____________</strong>    <strong>__________</strong>    <strong>_________</strong>
+
+         1          0.0024673        0.014651       0.041452     0.055961 
+         2            0.58652         0.54002          0.268      0.24001 
+         3            0.58656         0.54002        0.27084      0.23719 
+         4            0.62707         0.57817        0.27498      0.24668 
+         5            0.71993         0.69206        0.28652       0.2692 
+         6            0.72074         0.69291        0.30423      0.28414 
+         7            0.79756          0.7483         0.4256      0.34593 
+         8            0.81012         0.75985        0.43821      0.36356 
+         9            0.81129         0.75684        0.44221      0.36956 
+        10            0.81661         0.75955        0.46155      0.38276 
+        11            0.81667         0.76046        0.46486       0.3893 
+        12            0.82778         0.77559        0.46859      0.39773 
+        13            0.84405          0.7747        0.46862      0.39702 
+        14            0.84768         0.78348        0.49355      0.39876 
+        15            0.85232         0.78813        0.49724      0.40014 
+        16            0.85249         0.78725        0.49724      0.40015 
+        17            0.85413         0.78754        0.50879      0.40421 
+        18            0.85722          0.7855        0.51389      0.40624 
+        19              0.858         0.78701        0.51389      0.40619 
+        20            0.85942         0.78683        0.51405      0.40573 
+        21            0.85946         0.78667        0.51634      0.40929 
+        22            0.85984         0.78697        0.51935      0.40497 
+        23            0.86143         0.78764        0.51943      0.40407 
+        24            0.86151         0.78783        0.52814      0.41021 
+        25            0.86152         0.78796         0.5348      0.41788 
+        26            0.86163          0.7881        0.53548      0.41722 
+        27            0.86163         0.78812        0.53622      0.41725 
+        28            0.86166         0.78821        0.53674      0.41629 
+        29            0.86197         0.78921        0.53832      0.41616 
+        30            0.86219         0.78809        0.54707      0.41394 
+        31             0.8626         0.78812        0.55484      0.42123 
+        32            0.86272         0.78777        0.55608      0.42092 
+        33            0.86273         0.78773        0.56126      0.42202 
+        34             0.8629         0.78748        0.56134      0.42191 
+        35            0.86399          0.7885        0.56549       0.4211 
+        36            0.86439         0.78831        0.57019      0.42648 
+        37            0.86525         0.78834        0.57019       0.4265 
+        38            0.86552         0.78837        0.57026      0.42664 
+        39            0.86579         0.78756        0.57069       0.4271 
+        40            0.86648         0.78707        0.57338      0.42938 
+        41            0.86711         0.78711        0.57366      0.42983 
+        42            0.86732         0.78765        0.57792      0.43579 
+        43             0.8687         0.78895        0.57853      0.43532 
+        44             0.8687         0.78895        0.57888      0.43505 
+        45            0.86871         0.78896         0.5804      0.43517 
+        46            0.86897         0.78952        0.58121      0.43627 
+        47            0.86899          0.7896         0.5867      0.43805 
+        48            0.86899          0.7896        0.58692      0.43946 
+        49            0.86901         0.78966        0.58693      0.43929 
+        50            0.86901         0.78966        0.58705      0.43956 
+       100            0.87735         0.79778        0.62912      0.47026 
+       150              0.882         0.80049        0.65197       0.4803 
+       200            0.88402          0.7964        0.66127      0.48516 
+       250            0.88755         0.79723        0.67657      0.48718 
+       300            0.89032         0.79364         0.6866      0.48192 
+       350            0.89301         0.79568        0.69579      0.48649 
+       400            0.89497         0.79796        0.70525      0.48239 
+       450            0.89727         0.79453         0.7131      0.48058 
+       500            0.90089         0.79368        0.72596      0.48007 
+       550            0.90436         0.79159        0.73546      0.47369 
+       600            0.90784         0.79206        0.74725      0.46883 
+       650            0.91126         0.79512        0.75673      0.47015 
+       700            0.91309         0.79447        0.76591      0.46584 
+       750            0.91497         0.79594        0.77508      0.46197 
+       800            0.91744         0.79526        0.78413      0.45961 
+       850            0.91966         0.79451        0.79159       0.4463 
+       900            0.92246         0.78237         0.7954      0.44341 
+       950            0.92592         0.75878        0.80329      0.41646 
+       960            0.92604         0.75833        0.80376      0.41137 
+
+Uncompressed training FVAF: 0.926037 / 0.803756
+Uncompressed test FVAF:     0.758331 / 0.411375
+Best sampled shoulder test FVAF: 0.800494 at 150 PCs
+Best sampled elbow test FVAF: 0.487182 at 250 PCs
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\results\task4_pca.mat
+RESULT: PASS. PCA sweep completed.
+===== HW3 TASK 4: PCA SWEEP END =====
+
+===== HW3 TASK 4: PLOT START =====
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task4_pca_effects.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task4_pca_effects.png
+RESULT: PASS. PCA figure saved.
+===== HW3 TASK 4: PLOT END =====

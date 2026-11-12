@@ -8,5 +8,5 @@ function [transMat, meanp, stdp] = compute_pc(in)
 in_trans = in';
 
 [pn,meanp,stdp] = prestd(in_trans);
-[ptrans, transMat] = prepca(in_trans, 0);
+[ptrans, transMat] = prepca(pn, 0);
 
