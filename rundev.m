@@ -426,7 +426,131 @@ fprintf('===== HW3 TASK 2: PLOT END =====\n');
 
 
 %% 03 Task 3 prediction targets
-% Add later.
+fprintf('\n===== HW3 TASK 3: TRAINING START =====\n');
+
+try
+    global parms
+
+    assert(exist('hw3ResultsDir', 'var') == 1, ...
+        'Run section 00 before this section.');
+
+    assert(isstruct(parms) && isfield(parms, 'patterns'), ...
+        'Lab state is missing. Run section 00.');
+
+    % Fix all settings except prediction target.
+    set_pca(0);
+    set_proprioceptive(0);
+    set_delays(1:20);
+    set_train(1:2);
+    set_test(10);
+
+    assert(isempty(intersect( ...
+        parms.net.patset_train, parms.net.patset_test)), ...
+        'Training and test folds overlap.');
+
+    % Set up the three target experiments.
+    hw3Task3 = struct;
+    hw3Task3.targets = {'torque', 'X', 'dX'};
+    hw3Task3.outputLabels = { ...
+        'Shoulder', 'Elbow'; ...
+        'X', 'Y'; ...
+        'X', 'Y'};
+    hw3Task3.trainFolds = parms.net.patset_train;
+    hw3Task3.testFolds = parms.net.patset_test;
+    hw3Task3.nPC = parms.pca.ncomponents;
+    hw3Task3.proprioception = parms.patterns.append_flag;
+    hw3Task3.delayBins = 1:20;
+    hw3Task3.fvafTrain = nan(3, 2);
+    hw3Task3.fvafTest = nan(3, 2);
+    hw3Task3.elapsedSeconds = nan(3, 1);
+    hw3Task3.predictions = cell(3, 1);
+    hw3Task3.completed = false(3, 1);
+
+    hw3Task3File = fullfile(hw3ResultsDir, ...
+        'task3_prediction_targets.mat');
+
+    for hw3Task3Index = 1:numel(hw3Task3.targets)
+        hw3Target = hw3Task3.targets{hw3Task3Index};
+        set_type(hw3Target);
+
+        fprintf('\n--- Experiment %d of 3: %s ---\n', ...
+            hw3Task3Index, hw3Target);
+        fprintf('Training folds: 1 2\n');
+        fprintf('Test fold: 10\n');
+
+        hw3Task3Timer = tic;
+        [hw3TrainFVAF, hw3TestFVAF] = train;
+        hw3Elapsed = toc(hw3Task3Timer);
+
+        assert(numel(hw3TrainFVAF) == 2 && ...
+               numel(hw3TestFVAF) == 2, ...
+            'Expected two output dimensions.');
+
+        assert(all(isfinite( ...
+            [hw3TrainFVAF(:); hw3TestFVAF(:)])), ...
+            'FVAF contains NaN or Inf.');
+
+        hw3Task3.fvafTrain(hw3Task3Index, :) = ...
+            hw3TrainFVAF(:)';
+        hw3Task3.fvafTest(hw3Task3Index, :) = ...
+            hw3TestFVAF(:)';
+        hw3Task3.elapsedSeconds(hw3Task3Index) = hw3Elapsed;
+
+        % Preserve each model's predictions before changing target.
+        hw3Prediction = struct;
+        hw3Prediction.target = hw3Target;
+        hw3Prediction.actualTrain = parms.patterns.output_train;
+        hw3Prediction.predictedTrain = parms.net.output_train;
+        hw3Prediction.actualTest = parms.patterns.output_test;
+        hw3Prediction.predictedTest = parms.net.output_test;
+        hw3Prediction.timeTrain = parms.patterns.time_train;
+        hw3Prediction.timeTest = parms.patterns.time_test;
+        hw3Prediction.W = parms.net.W;
+
+        hw3Task3.predictions{hw3Task3Index} = hw3Prediction;
+        hw3Task3.completed(hw3Task3Index) = true;
+
+        save(hw3Task3File, 'hw3Task3');
+
+        fprintf('Outputs:          %-12s %s\n', ...
+            hw3Task3.outputLabels{hw3Task3Index, 1}, ...
+            hw3Task3.outputLabels{hw3Task3Index, 2});
+        fprintf('Training FVAF:    % .6f     % .6f\n', ...
+            hw3TrainFVAF(1), hw3TrainFVAF(2));
+        fprintf('Test FVAF:        % .6f     % .6f\n', ...
+            hw3TestFVAF(1), hw3TestFVAF(2));
+        fprintf('Elapsed: %.2f seconds. Progress saved.\n', ...
+            hw3Elapsed);
+    end
+
+    hw3Task3Table = table( ...
+        hw3Task3.targets(:), ...
+        hw3Task3.fvafTrain(:, 1), ...
+        hw3Task3.fvafTest(:, 1), ...
+        hw3Task3.fvafTrain(:, 2), ...
+        hw3Task3.fvafTest(:, 2), ...
+        'VariableNames', { ...
+        'Target', 'TrainDim1', 'TestDim1', ...
+        'TrainDim2', 'TestDim2'});
+
+    hw3Task3.table = hw3Task3Table;
+    save(hw3Task3File, 'hw3Task3');
+
+    fprintf('\n--- TASK 3 SUMMARY ---\n');
+    disp(hw3Task3Table);
+    fprintf('Torque dimensions: shoulder / elbow\n');
+    fprintf('Position and velocity dimensions: X / Y\n');
+    fprintf('Saved results: %s\n', hw3Task3File);
+    fprintf('RESULT: PASS. All three targets trained and saved.\n');
+
+catch hw3Error
+    fprintf('\nRESULT: FAIL.\n');
+    fprintf('%s\n', getReport(hw3Error, ...
+        'extended', 'hyperlinks', 'off'));
+    rethrow(hw3Error);
+end
+
+fprintf('===== HW3 TASK 3: TRAINING END =====\n');
 
 
 %% 031 Joint animation

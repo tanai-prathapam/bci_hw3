@@ -552,3 +552,9 @@ Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai
 Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task2_training_fold_effects.png
 RESULT: PASS. Four-curve figure created and saved.
 ===== HW3 TASK 2: PLOT END =====
+
+===== HW3 TASK 2: PLOT START =====
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task2_training_fold_effects.fig
+Saved: C:\Users\bravo\OneDrive - The University of Texas at Austin\Desktop\Tanai's Data\UT Undergrad ALL\UT Classes ALL\BCI\HW_3_export\figures\task2_training_fold_effects.png
+RESULT: PASS. Four-curve figure created and saved.
+===== HW3 TASK 2: PLOT END =====
